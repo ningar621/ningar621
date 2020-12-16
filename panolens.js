@@ -7212,7 +7212,7 @@
 			console.log(scope)
 	        if ( scope.enabled === false ) return;
 			var arrow = document.getElementById("arrow");
-			arrow.innerHTML=JSON.stringify(scope)
+			arrow.innerHTML+='1'
 			// arrow.innerHTML = 'qq    '+scope.deviceOrientation.alpha+'  ww  '+scope.deviceOrientation.beta+'  ee  '+scope.deviceOrientation.gamma;
 
 
