@@ -7209,10 +7209,11 @@
 	    };
 
 	    this.update = function( ignoreUpdate ) {
-			console.log(scope.deviceOrientation)
+			console.log(scope)
 	        if ( scope.enabled === false ) return;
 			var arrow = document.getElementById("arrow");
-			arrow.innerHTML = 'qq    '+scope.deviceOrientation.alpha+'  ww  '+scope.deviceOrientation.beta+'  ee  '+scope.deviceOrientation.gamma;
+			arrow.innerHTML=JSON.stringify(scope)
+			// arrow.innerHTML = 'qq    '+scope.deviceOrientation.alpha+'  ww  '+scope.deviceOrientation.beta+'  ee  '+scope.deviceOrientation.gamma;
 
 
 	        var alpha = scope.deviceOrientation.alpha ? THREE.Math.degToRad( scope.deviceOrientation.alpha ) + scope.alphaOffsetAngle : 0; // Z
