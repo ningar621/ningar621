@@ -7089,14 +7089,13 @@
 
 	    var onDeviceOrientationChangeEvent = function( event ) {
 			
-			scope.deviceOrientation = {};
 			scope.deviceOrientation.alpha=event.alpha;
 			scope.deviceOrientation.beta=event.beta;
 			scope.deviceOrientation.gamma=event.gamma;
 			
 			scope.update()
 			var arrow = document.getElementById("arrow");
-			arrow.innerHTML = 'qq    '+event.alpha+'  22  '+event.beta+'  333  '+event.gamma;
+			
 	    };
 
 	    var onScreenOrientationChangeEvent = function() {
@@ -7213,7 +7212,7 @@
 	    this.update = function( ignoreUpdate ) {
 	        if ( scope.enabled === false ) return;
 			var arrow = document.getElementById("arrow");
-			// arrow.innerHTML = 'qq    '+JSON.stringify(scope.deviceOrientation.alpha);
+			arrow.innerHTML = 'qq    '+event.alpha+'  ww  '+event.beta+'  ee  '+event.gamma;
 
 
 	        var alpha = scope.deviceOrientation.alpha ? THREE.Math.degToRad( scope.deviceOrientation.alpha ) + scope.alphaOffsetAngle : 0; // Z
