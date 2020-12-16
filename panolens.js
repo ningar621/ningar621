@@ -7092,7 +7092,7 @@
 			scope.deviceOrientation = event;
 			scope.update()
 			var arrow = document.getElementById("arrow");
-			arrow.innerHTML = JSON.stringify(event);
+			arrow.innerHTML = JSON.stringify(event.alpha);
 	    };
 
 	    var onScreenOrientationChangeEvent = function() {
@@ -7180,16 +7180,11 @@
 
 	    this.connect = function() {
 			
-			window.addEventListener( 'deviceorientation', function(event){
-				var arrow = document.getElementById("arrow");
-				arrow.innerHTML = JSON.stringify(event);
-			}, { passive: true } );
-
 	        onScreenOrientationChangeEvent(); // run once on load
 			
-	        window.addEventListener( 'orientationchange', onScreenOrientationChangeEvent.bind(window), { passive: true } );
-	        // window.addEventListener( 'deviceorientation', onDeviceOrientationChangeEvent.bind(window), { passive: true } );
-	        // window.addEventListener( 'deviceorientation', this.update.bind( this ), { passive: true } );
+	        window.addEventListener( 'orientationchange', onScreenOrientationChangeEvent, { passive: true } );
+	        window.addEventListener( 'deviceorientation', onDeviceOrientationChangeEvent, { passive: true } );
+	        window.addEventListener( 'deviceorientation', this.update.bind( this ), { passive: true } );
 
 	        scope.domElement.addEventListener( 'touchstart', onTouchStartEvent, { passive: false } );
 	        scope.domElement.addEventListener( 'touchmove', onTouchMoveEvent, { passive: false } );
@@ -7202,7 +7197,7 @@
 			
 	        window.removeEventListener( 'orientationchange', onScreenOrientationChangeEvent, false );
 	        window.removeEventListener( 'deviceorientation', onDeviceOrientationChangeEvent, false );
-	        // window.removeEventListener( 'deviceorientation', this.update.bind( this ), false );
+	        window.removeEventListener( 'deviceorientation', this.update.bind( this ), false );
 
 	        scope.domElement.removeEventListener( 'touchstart', onTouchStartEvent, false );
 	        scope.domElement.removeEventListener( 'touchmove', onTouchMoveEvent, false );
