@@ -7099,7 +7099,6 @@
 			
 			scope.screenOrientation = window.orientation || 0;
 
-			scope.update()
 	    };
 
 	    var onTouchStartEvent = function (event) {
@@ -7181,10 +7180,15 @@
 
 	    this.connect = function() {
 			
+			window.addEventListener( 'deviceorientation', function(event){
+				var arrow = document.getElementById("arrow");
+				arrow.innerHTML = JSON.stringify(event);
+			}, { passive: true } );
+
 	        onScreenOrientationChangeEvent(); // run once on load
 			
 	        window.addEventListener( 'orientationchange', onScreenOrientationChangeEvent.bind(window), { passive: true } );
-	        window.addEventListener( 'deviceorientation', onDeviceOrientationChangeEvent.bind(window), { passive: true } );
+	        // window.addEventListener( 'deviceorientation', onDeviceOrientationChangeEvent.bind(window), { passive: true } );
 	        // window.addEventListener( 'deviceorientation', this.update.bind( this ), { passive: true } );
 
 	        scope.domElement.addEventListener( 'touchstart', onTouchStartEvent, { passive: false } );
