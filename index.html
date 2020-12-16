@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, shrink-to-fit=no">
+    <title>豹厂指引图</title>
+    <style>
+      html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #000;
+      }
+      #panolens-separate-container {
+        position: absolute;
+        width: 300px;
+        height: 150px;
+        right: 0;
+        top: 100px;
+      }
+      #panolens-separate-container:-webkit-full-screen{
+        left: 0;
+        top: 0;
+      }
+      #panolens-separate-container:-moz-full-screen{
+        left: 0;
+        top: 0;
+      }
+      #panolens-separate-container:-ms-fullscreen{
+        left: 0;
+        top: 0;
+      }
+      #panolens-separate-container:fullscreen {
+        left: 0;
+        top: 0;
+      }
+      #progress {
+        width: 0;
+        height: 10px;
+        position: fixed;
+        top: 0;
+        background: #f00;
+        -webkit-transition: opacity 0.5s ease;
+        transition: opacity 0.5s ease;
+      }
+      #progress.finish {
+        opacity: 0;
+      }
+      #arrow{position: fixed;bottom: 0;width: 100%;background: #000;height: 100px;color: #fff; overflow: auto;}
+    </style>
+  </head>
+  <body>
+    <script src="./three.min.js"></script>
+  <script src="./panolens.js"></script>
+  <!-- <script src="./panolens.min.js"></script> -->
+  <div id="panolens-separate-container"></div>
+  <div id="progress"></div>
+  <div id="arrow">1</div>
+  <script>
+    var viewer_main,three_floor_stair,three_floor_Chicago;
+    var spotChicago;
+    progressElement = document.getElementById( 'progress' );
+    function onEnter ( event ) {
+        progressElement.style.width = 0;
+        progressElement.classList.remove( 'finish' );
+      }
+      function onProgress ( event ,spot) {
+        progress = event.progress.loaded / event.progress.total * 100;
+        progressElement.style.width = progress + '%';
+        if ( progress === 100 ) {
+          spot.focus( 1000, TWEEN.Easing['Exponential'][ 'out'] );
+          progressElement.classList.add( 'finish' );
+        }   
+      }
+    // Main panorama//{ initialLookAt: new THREE.Vector3( 2953.93, 1891.55, 5213.46 ) }
+    viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: 'console', viewIndicator: true, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
+    
+    const logEvent = ( { type } ) => console.log( type );
+    // panorama_main_video = new PANOLENS.VideoPanorama( 'asset/textures/video/ClashofClans.mp4', { autoplay: true, muted: false });
+    //三楼楼梯口
+    three_floor_stair = new PANOLENS.ImagePanorama( 'asset/textures/three_floor_stair.jpg' );
+    three_floor_stair.addEventListener( 'progress', function(e){
+      onProgress(e,spotChicago)
+    });
+    three_floor_stair.addEventListener( 'enter', onEnter );
+    //芝加哥会议室门口
+    three_floor_Chicago = new PANOLENS.ImagePanorama( 'asset/textures/three_floor_Chicago.jpg' );
+    three_floor_Chicago.addEventListener( 'progress', function(e){
+      onProgress(e,spotWC)
+    });
+    three_floor_Chicago.addEventListener( 'enter', onEnter );
+    
+    // 图片切换图标
+    // infospot1.addEventListener( 'click', function(){
+    //   viewer_main.tweenControlCenterByObject( cube );
+    // } );
+    three_floor_stair.link( three_floor_Chicago, new THREE.Vector3( -4479.72, -1729.70,1366.45 ),300,'','up');
+
+    three_floor_Chicago.link( three_floor_stair, new THREE.Vector3(-2668.35, -620.15, 93.96 ),300,'','up');
+    
+    //地点标示
+    spotChicago = new PANOLENS.Infospot( 350, PANOLENS.DataImage.Info );
+    spotChicago.position.set( -4520.96, -620.15, 2031.96 );
+    spotChicago.addHoverText( '芝加哥会议室' );
+    three_floor_stair.add( spotChicago );
+
+    spotWC = new PANOLENS.Infospot( 350, PANOLENS.DataImage.Info );
+    spotWC.position.set( 4851.08, -391.01, -1037.34 );
+    spotWC.addHoverText( '厕所' );
+
+    spotStair = new PANOLENS.Infospot( 350, PANOLENS.DataImage.Info );
+    spotStair.position.set(-4956.35, -432.20, 448.92 );
+    spotStair.addHoverText( '三楼楼梯口' );
+    three_floor_Chicago.add( spotStair,spotWC );
+
+    //添加场景图
+    viewer_main.add( three_floor_stair, three_floor_Chicago );
+
+    //获取陀螺仪
+    viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
+    // viewer_main.enableEffect( PANOLENS.MODES.CARDBOARD );
+    viewer_main.enableControl( PANOLENS.CONTROLS.ORBIT );
+    // viewer_main.enableEffect( PANOLENS.MODES.NORMAL );
+
+    //获取地理位置
+    three_floor_stair.addEventListener('click',  function(e){
+      
+      var camera=viewer_main.getCamera();
+      var scence=viewer_main.getScene();
+      var vector = new THREE.Vector3();//三维坐标对象
+      
+      vector.set(
+        ( (e.clientX||e.mouseEvent.clientX) / window.innerWidth ) * 2 - 1,
+        - ( (e.clientY||e.mouseEvent.clientY) / window.innerHeight ) * 2 + 1,
+        0.5 );
+      vector.unproject( camera );
+      
+      var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+      var intersects = raycaster.intersectObjects(scence.children);
+      
+      if (intersects.length > 0) {
+        var selected = intersects[0];//取第一个物体
+        // console.log('xy正负互换')
+        // console.log("x坐标:"+selected.point.x);
+        // console.log("y坐标:"+selected.point.y);
+        // console.log("z坐标:"+selected.point.z);
+      }
+    });
+    console.log(viewer_main)
+    window.getGyro();
+    function getGyro(){
+      // let that = this;
+      // let text = "";
+      // let deg=0;
+      // const baseZ=4352;
+      // const baseX=8704
+      // let timer=null;
+      // let x=0,y=0,z=0;
+      // timer=setInterval(function(){
+      //   deg++;
+      //   deg=deg>360?0:deg;
+      //   if(deg==360)clearInterval(timer);
+      //   z=deg<181?((deg-90)%180*baseZ/90).toFixed(2):((270-deg)%180*baseZ/90).toFixed(2)
+      //   x=deg>180?baseX:-baseX
+      //   console.log(z)
+      //   console.log(deg)
+      //   viewer_main.tweenControlCenter(new THREE.Vector3( Number(x), -620.15, Number(z) ));
+      // },50)
+      var arrow = document.getElementById("arrow");  
+      window.addEventListener('deviceorientation', function(e){
+          // that.absolute= e.absolute;
+          // that.alpha= (parseInt(e.alpha)).toFixed(2);
+          // that.beta= (parseInt(e.beta)).toFixed(2);
+          // that.gamma= (parseInt(e.gamma)).toFixed(2);
+          
+          // text = ""  
+          
+          // text += "位置：absolute{" + Math.round(that.absolute) + "deg)<p>";  
+          // text += "左右旋转：rotate alpha{" + Math.round(that.alpha) + "deg)<p>";  //右转是0，到正面360
+          // text += "前后旋转：rotate beta{" + Math.round(that.beta) + "deg)<p>";  //平躺向上是0，竖90，趴下180
+          // text += "扭转设备：rotate gamma{" + Math.round(that.gamma) + "deg)<p>"; //右 正，左负；最大+-90
+
+          arrow.innerHTML += '   deviceorientation     ';
+          // let alpha=0;
+          // if(Math.abs(that.alpha-90)<90){
+          // alpha=(Math.abs(that.alpha-90)*baseLimit*-1/360).toFixed(2)
+          // }else{
+          // alpha=(Math.abs(that.alpha-90)*baseLimit/360).toFixed(2)
+          // }
+          // viewer_main.tweenControlCenter(new THREE.Vector3( -4520.96, -620.15, alpha ));
+      },true);
+      window.addEventListener( 'orientationchange',function(e){
+       
+        arrow.innerHTML += '    orientationchange     '; 
+      }, true );
+    }
+  </script>
+  </body>
+</html>
