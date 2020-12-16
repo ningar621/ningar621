@@ -7092,7 +7092,7 @@
 			scope.deviceOrientation = event;
 			scope.update()
 			var arrow = document.getElementById("arrow");
-			arrow.innerHTML += JSON.stringify(' @@ '+event+' @@ ');
+			arrow.innerHTML += JSON.stringify(' ## '+event+' ## ');
 	    };
 
 	    var onScreenOrientationChangeEvent = function() {
