@@ -7091,8 +7091,7 @@
 			
 			scope.deviceOrientation = event;
 			scope.update()
-			var arrow = document.getElementById("arrow");
-			arrow.innerHTML = JSON.stringify(event.alpha);
+			
 	    };
 
 	    var onScreenOrientationChangeEvent = function() {
@@ -7208,6 +7207,9 @@
 
 	    this.update = function( ignoreUpdate ) {
 	        if ( scope.enabled === false ) return;
+			var arrow = document.getElementById("arrow");
+			arrow.innerHTML = JSON.stringify(scope.deviceOrientation.alpha);
+
 
 	        var alpha = scope.deviceOrientation.alpha ? THREE.Math.degToRad( scope.deviceOrientation.alpha ) + scope.alphaOffsetAngle : 0; // Z
 	        var beta = scope.deviceOrientation.beta ? THREE.Math.degToRad( scope.deviceOrientation.beta ) : 0; // X'
