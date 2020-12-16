@@ -7186,7 +7186,7 @@
 			
 	        window.addEventListener( 'orientationchange', onScreenOrientationChangeEvent, { passive: true } );
 	        window.addEventListener( 'deviceorientation', onDeviceOrientationChangeEvent, { passive: true } );
-	        window.addEventListener( 'deviceorientation', this.update.bind( this ), { passive: true } );
+	        // window.addEventListener( 'deviceorientation', this.update.bind( this ), { passive: true } );
 
 	        scope.domElement.addEventListener( 'touchstart', onTouchStartEvent, { passive: false } );
 	        scope.domElement.addEventListener( 'touchmove', onTouchMoveEvent, { passive: false } );
@@ -7199,7 +7199,7 @@
 			
 	        window.removeEventListener( 'orientationchange', onScreenOrientationChangeEvent, false );
 	        window.removeEventListener( 'deviceorientation', onDeviceOrientationChangeEvent, false );
-	        window.removeEventListener( 'deviceorientation', this.update.bind( this ), false );
+	        // window.removeEventListener( 'deviceorientation', this.update.bind( this ), false );
 
 	        scope.domElement.removeEventListener( 'touchstart', onTouchStartEvent, false );
 	        scope.domElement.removeEventListener( 'touchmove', onTouchMoveEvent, false );
@@ -7213,7 +7213,7 @@
 	        if ( scope.enabled === false ) return;
 			var arrow = document.getElementById("arrow");
 			// arrow.innerHTML+='2'
-			arrow.innerHTML = 'qq    '+scope.deviceOrientation.alpha+'  ww  '+scope.deviceOrientation.beta+'  ee  '+scope.deviceOrientation.gamma;
+			arrow.innerHTML = '@@@@    '+scope.deviceOrientation.alpha+'  ww  '+scope.deviceOrientation.beta+'  ee  '+scope.deviceOrientation.gamma;
 
 
 	        var alpha = scope.deviceOrientation.alpha ? THREE.Math.degToRad( scope.deviceOrientation.alpha ) + scope.alphaOffsetAngle : 0; // Z
