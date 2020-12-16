@@ -7212,7 +7212,7 @@
 	    this.update = function( ignoreUpdate ) {
 	        if ( scope.enabled === false ) return;
 			var arrow = document.getElementById("arrow");
-			arrow.innerHTML = 'qq    '+event.alpha+'  ww  '+event.beta+'  ee  '+event.gamma;
+			arrow.innerHTML = 'qq    '+scope.deviceOrientation.alpha+'  ww  '+scope.deviceOrientation.beta+'  ee  '+scope.deviceOrientation.gamma;
 
 
 	        var alpha = scope.deviceOrientation.alpha ? THREE.Math.degToRad( scope.deviceOrientation.alpha ) + scope.alphaOffsetAngle : 0; // Z
