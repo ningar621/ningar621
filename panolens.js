@@ -7090,7 +7090,7 @@
 	    var onDeviceOrientationChangeEvent = function( event ) {
 			
 			scope.deviceOrientation = event;
-			this.update()
+			scope.update()
 			var arrow = document.getElementById("arrow");
 			arrow.innerHTML += JSON.stringify(event);
 	    };
@@ -7099,7 +7099,7 @@
 			
 			scope.screenOrientation = window.orientation || 0;
 
-			this.update()
+			scope.update()
 	    };
 
 	    var onTouchStartEvent = function (event) {
