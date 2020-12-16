@@ -7093,7 +7093,6 @@
 			scope.deviceOrientation.beta=event.beta;
 			scope.deviceOrientation.gamma=event.gamma;
 			
-			scope.update()
 			var arrow = document.getElementById("arrow");
 			
 	    };
@@ -7210,6 +7209,7 @@
 	    };
 
 	    this.update = function( ignoreUpdate ) {
+			console.log(scope.deviceOrientation)
 	        if ( scope.enabled === false ) return;
 			var arrow = document.getElementById("arrow");
 			arrow.innerHTML = 'qq    '+scope.deviceOrientation.alpha+'  ww  '+scope.deviceOrientation.beta+'  ee  '+scope.deviceOrientation.gamma;
