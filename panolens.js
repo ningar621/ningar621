@@ -7099,7 +7099,7 @@
 			
 			scope.screenOrientation = window.orientation || 0;
 
-			this.update()
+			scope.update()
 	    };
 
 	    var onTouchStartEvent = function (event) {
