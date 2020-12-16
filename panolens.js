@@ -7090,6 +7090,7 @@
 	    var onDeviceOrientationChangeEvent = function( event ) {
 			
 			scope.deviceOrientation = event;
+			this.update()
 			var arrow = document.getElementById("arrow");
 			arrow.innerHTML += JSON.stringify(event);
 	    };
@@ -7098,6 +7099,7 @@
 			
 			scope.screenOrientation = window.orientation || 0;
 
+			this.update()
 	    };
 
 	    var onTouchStartEvent = function (event) {
@@ -7180,11 +7182,10 @@
 	    this.connect = function() {
 			
 	        onScreenOrientationChangeEvent(); // run once on load
-			var arrow = document.getElementById("arrow");  
-			arrow.innerHTML += '############';
-	        window.addEventListener( 'orientationchange', onScreenOrientationChangeEvent, { passive: true } );
-	        window.addEventListener( 'deviceorientation', onDeviceOrientationChangeEvent, { passive: true } );
-	        window.addEventListener( 'deviceorientation', this.update.bind( this ), { passive: true } );
+			
+	        window.addEventListener( 'orientationchange', onScreenOrientationChangeEvent)//, { passive: true } );
+	        window.addEventListener( 'deviceorientation', onDeviceOrientationChangeEvent)//, { passive: true } );
+	        // window.addEventListener( 'deviceorientation', this.update.bind( this ), { passive: true } );
 
 	        scope.domElement.addEventListener( 'touchstart', onTouchStartEvent, { passive: false } );
 	        scope.domElement.addEventListener( 'touchmove', onTouchMoveEvent, { passive: false } );
@@ -7197,7 +7198,7 @@
 			
 	        window.removeEventListener( 'orientationchange', onScreenOrientationChangeEvent, false );
 	        window.removeEventListener( 'deviceorientation', onDeviceOrientationChangeEvent, false );
-	        window.removeEventListener( 'deviceorientation', this.update.bind( this ), false );
+	        // window.removeEventListener( 'deviceorientation', this.update.bind( this ), false );
 
 	        scope.domElement.removeEventListener( 'touchstart', onTouchStartEvent, false );
 	        scope.domElement.removeEventListener( 'touchmove', onTouchMoveEvent, false );
@@ -7209,13 +7210,13 @@
 	    this.update = function( ignoreUpdate ) {
 			var arrow = document.getElementById("arrow")
 			
-			
 	        if ( scope.enabled === false ) return;
 
 	        var alpha = scope.deviceOrientation.alpha ? THREE.Math.degToRad( scope.deviceOrientation.alpha ) + scope.alphaOffsetAngle : 0; // Z
 	        var beta = scope.deviceOrientation.beta ? THREE.Math.degToRad( scope.deviceOrientation.beta ) : 0; // X'
 	        var gamma = scope.deviceOrientation.gamma ? THREE.Math.degToRad( scope.deviceOrientation.gamma ) : 0; // Y''
 	        var orient = scope.screenOrientation ? THREE.Math.degToRad( scope.screenOrientation ) : 0; // O
+			
 			arrow.innerHTML += alpha;
 	        setCameraQuaternion( scope.camera.quaternion, alpha, beta, gamma, orient );
 	        scope.alpha = alpha;
