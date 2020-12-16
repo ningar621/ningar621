@@ -7092,7 +7092,7 @@
 			scope.deviceOrientation = event;
 			scope.update()
 			var arrow = document.getElementById("arrow");
-			arrow.innerHTML = JSON.stringify(event);
+			// arrow.innerHTML = JSON.stringify(event);
 	    };
 
 	    var onScreenOrientationChangeEvent = function() {
@@ -7183,8 +7183,8 @@
 			
 	        onScreenOrientationChangeEvent(); // run once on load
 			
-	        window.addEventListener( 'orientationchange', onScreenOrientationChangeEvent.bind(this), { passive: true } );
-	        window.addEventListener( 'deviceorientation', onDeviceOrientationChangeEvent.bind(this), { passive: true } );
+	        window.addEventListener( 'orientationchange', onScreenOrientationChangeEvent.bind(window), { passive: true } );
+	        window.addEventListener( 'deviceorientation', onDeviceOrientationChangeEvent.bind(window), { passive: true } );
 	        // window.addEventListener( 'deviceorientation', this.update.bind( this ), { passive: true } );
 
 	        scope.domElement.addEventListener( 'touchstart', onTouchStartEvent, { passive: false } );
@@ -7208,8 +7208,6 @@
 	    };
 
 	    this.update = function( ignoreUpdate ) {
-			var arrow = document.getElementById("arrow")
-			
 	        if ( scope.enabled === false ) return;
 
 	        var alpha = scope.deviceOrientation.alpha ? THREE.Math.degToRad( scope.deviceOrientation.alpha ) + scope.alphaOffsetAngle : 0; // Z
@@ -7217,7 +7215,6 @@
 	        var gamma = scope.deviceOrientation.gamma ? THREE.Math.degToRad( scope.deviceOrientation.gamma ) : 0; // Y''
 	        var orient = scope.screenOrientation ? THREE.Math.degToRad( scope.screenOrientation ) : 0; // O
 			
-			arrow.innerHTML += ' @@ '+alpha+' @@ ';
 	        setCameraQuaternion( scope.camera.quaternion, alpha, beta, gamma, orient );
 	        scope.alpha = alpha;
 
