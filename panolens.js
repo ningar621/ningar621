@@ -7099,7 +7099,7 @@
 			
 			scope.screenOrientation = window.orientation || 0;
 
-			scope.update()
+			this.update()
 	    };
 
 	    var onTouchStartEvent = function (event) {
@@ -7183,8 +7183,8 @@
 			
 	        onScreenOrientationChangeEvent(); // run once on load
 			
-	        window.addEventListener( 'orientationchange', onScreenOrientationChangeEvent)//, { passive: true } );
-	        window.addEventListener( 'deviceorientation', onDeviceOrientationChangeEvent)//, { passive: true } );
+	        window.addEventListener( 'orientationchange', onScreenOrientationChangeEvent.bind(this), { passive: true } );
+	        window.addEventListener( 'deviceorientation', onDeviceOrientationChangeEvent.bind(this), { passive: true } );
 	        // window.addEventListener( 'deviceorientation', this.update.bind( this ), { passive: true } );
 
 	        scope.domElement.addEventListener( 'touchstart', onTouchStartEvent, { passive: false } );
