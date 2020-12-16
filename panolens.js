@@ -7091,7 +7091,7 @@
 			
 			scope.deviceOrientation = event;
 			var arrow = document.getElementById("arrow");
-			arrow.innerHTML=JSON.stringify(event);
+			arrow.innerHTML += JSON.stringify(event);
 	    };
 
 	    var onScreenOrientationChangeEvent = function() {
@@ -7178,7 +7178,7 @@
 	    };
 
 	    this.connect = function() {
-			console.log('############')
+			
 	        onScreenOrientationChangeEvent(); // run once on load
 			var arrow = document.getElementById("arrow");  
 			arrow.innerHTML += '############';
@@ -7216,7 +7216,7 @@
 	        var beta = scope.deviceOrientation.beta ? THREE.Math.degToRad( scope.deviceOrientation.beta ) : 0; // X'
 	        var gamma = scope.deviceOrientation.gamma ? THREE.Math.degToRad( scope.deviceOrientation.gamma ) : 0; // Y''
 	        var orient = scope.screenOrientation ? THREE.Math.degToRad( scope.screenOrientation ) : 0; // O
-			// arrow.innerHTML = alpha;
+			arrow.innerHTML += alpha;
 	        setCameraQuaternion( scope.camera.quaternion, alpha, beta, gamma, orient );
 	        scope.alpha = alpha;
 
