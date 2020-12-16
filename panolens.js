@@ -7094,13 +7094,13 @@
 			scope.deviceOrientation.gamma=event.gamma;
 			
 			var arrow = document.getElementById("arrow");
-			
+			scope.update()
 	    };
 
 	    var onScreenOrientationChangeEvent = function() {
 			
 			scope.screenOrientation = window.orientation || 0;
-
+			scope.update()
 	    };
 
 	    var onTouchStartEvent = function (event) {
@@ -7212,8 +7212,8 @@
 			console.log(scope)
 	        if ( scope.enabled === false ) return;
 			var arrow = document.getElementById("arrow");
-			arrow.innerHTML+='1'
-			// arrow.innerHTML = 'qq    '+scope.deviceOrientation.alpha+'  ww  '+scope.deviceOrientation.beta+'  ee  '+scope.deviceOrientation.gamma;
+			// arrow.innerHTML+='2'
+			arrow.innerHTML = 'qq    '+scope.deviceOrientation.alpha+'  ww  '+scope.deviceOrientation.beta+'  ee  '+scope.deviceOrientation.gamma;
 
 
 	        var alpha = scope.deviceOrientation.alpha ? THREE.Math.degToRad( scope.deviceOrientation.alpha ) + scope.alphaOffsetAngle : 0; // Z
