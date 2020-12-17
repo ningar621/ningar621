@@ -7213,8 +7213,8 @@
 			console.log(scope)
 	        if ( scope.enabled === false ) return;
 			var arrow = document.getElementById("arrow");
-			// arrow.innerHTML+='2'
-			arrow.innerHTML = '@@@@    '+JSON.stringify(scope);
+			arrow.innerHTML+='2'
+			// arrow.innerHTML = '@@@@    '+JSON.stringify(scope);
 
 
 	        var alpha = scope.deviceOrientation.alpha ? THREE.Math.degToRad( scope.deviceOrientation.alpha ) + scope.alphaOffsetAngle : 0; // Z
