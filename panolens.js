@@ -7096,7 +7096,7 @@
 			var arrow = document.getElementById("arrow");
 			scope.update()
 			console.log(scope)
-			arrow.innerHTML = '@@@@    '+JSON.stringify(scope);
+			// arrow.innerHTML = '@@@@    '+JSON.stringify(scope);
 
 	    };
 
@@ -7215,8 +7215,8 @@
 			// console.log(this)
 	        if ( scope.enabled === false ) return;
 			var arrow = document.getElementById("arrow");
-			arrow.innerHTML+='2'
-			// arrow.innerHTML = '@@@@    '+JSON.stringify(scope);
+			// arrow.innerHTML+='2'
+			arrow.innerHTML = '###   '+JSON.stringify(scope);
 
 
 	        var alpha = scope.deviceOrientation.alpha ? THREE.Math.degToRad( scope.deviceOrientation.alpha ) + scope.alphaOffsetAngle : 0; // Z
