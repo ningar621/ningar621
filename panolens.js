@@ -7215,8 +7215,8 @@
 			// console.log(scope)
 	        // if ( scope.enabled === false ) return;
 			
-			arrow.innerHTML+='2'
-			// arrow.innerHTML = '###   '+JSON.stringify(that);
+			// arrow.innerHTML+='2'
+			arrow.innerHTML = '###   '+JSON.stringify(scope);
 
 	        var alpha = scope.deviceOrientation.alpha ? THREE.Math.degToRad( scope.deviceOrientation.alpha ) + scope.alphaOffsetAngle : 0; // Z
 	        var beta = scope.deviceOrientation.beta ? THREE.Math.degToRad( scope.deviceOrientation.beta ) : 0; // X'
