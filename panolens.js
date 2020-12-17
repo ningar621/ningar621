@@ -7095,6 +7095,8 @@
 			
 			var arrow = document.getElementById("arrow");
 			scope.update()
+			console.log(scope)
+			arrow.innerHTML = '@@@@    '+JSON.stringify(scope);
 
 	    };
 
@@ -7210,7 +7212,7 @@
 	    };
 
 	    this.update = function( ignoreUpdate ) {
-			console.log(scope)
+			// console.log(this)
 	        if ( scope.enabled === false ) return;
 			var arrow = document.getElementById("arrow");
 			arrow.innerHTML+='2'
