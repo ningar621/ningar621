@@ -7066,7 +7066,7 @@
 	 */
 	function DeviceOrientationControls ( camera, domElement ) {
 
-	    var scope = this;
+	    const scope = this;
 	    var changeEvent = { type: 'change' };
 
 	    var rotY = 0;
