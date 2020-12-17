@@ -7087,14 +7087,15 @@
 	    this.alpha = 0;
 	    this.alphaOffsetAngle = 0;
 
-
+		var arrow = document.getElementById("arrow");
+		
 	    var onDeviceOrientationChangeEvent = function( event ) {
 			
 			scope.deviceOrientation.alpha=event.alpha;
 			scope.deviceOrientation.beta=event.beta;
 			scope.deviceOrientation.gamma=event.gamma;
 			
-			var arrow = document.getElementById("arrow");
+			
 			scope.updateAlphaOffsetAngle( );
 			console.log(that)
 			// arrow.innerHTML = '@@@%%    '+JSON.stringify(that);
@@ -7214,7 +7215,7 @@
 	    this.update = function( ignoreUpdate ) {
 			console.log('@@@@@@@')
 	        if ( scope.enabled === false ) return;
-			var arrow = document.getElementById("arrow");
+			
 			arrow.innerHTML+='2'
 			// arrow.innerHTML = '###   '+JSON.stringify(that);
 
