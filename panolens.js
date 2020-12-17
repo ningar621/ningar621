@@ -7129,7 +7129,6 @@
 
 	        tempX = event.touches[ 0 ].pageX;
 			tempY = event.touches[ 0 ].pageY;
-			
 
 	    };
 
@@ -7213,7 +7212,7 @@
 	    };
 
 	    this.update = function( ignoreUpdate ) {
-			// console.log(this)
+			console.log('@@@@@@@')
 	        if ( scope.enabled === false ) return;
 			var arrow = document.getElementById("arrow");
 			arrow.innerHTML+='2'
