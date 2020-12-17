@@ -74,7 +74,7 @@
         }   
       }
     // Main panorama//{ initialLookAt: new THREE.Vector3( 2953.93, 1891.55, 5213.46 ) }
-    viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: 'console', viewIndicator: true, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
+    viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: 'overlay', viewIndicator: true, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
     
     const logEvent = ( { type } ) => console.log( type );
     // panorama_main_video = new PANOLENS.VideoPanorama( 'asset/textures/video/ClashofClans.mp4', { autoplay: true, muted: false });
@@ -118,9 +118,9 @@
     viewer_main.add( three_floor_stair, three_floor_Chicago );
 
     //获取陀螺仪
-    // viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
+    viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
     // viewer_main.enableEffect( PANOLENS.MODES.CARDBOARD );
-    // viewer_main.enableControl( PANOLENS.CONTROLS.ORBIT );
+    viewer_main.enableControl( PANOLENS.CONTROLS.ORBIT );
     // viewer_main.enableEffect( PANOLENS.MODES.NORMAL );
 
     //获取地理位置

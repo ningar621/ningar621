@@ -7067,7 +7067,6 @@
 	function DeviceOrientationControls ( camera, domElement ) {
 
 	    const scope = this;
-		const that=this;
 	    var changeEvent = { type: 'change' };
 
 	    var rotY = 0;
@@ -7090,15 +7089,10 @@
 		var arrow = document.getElementById("arrow");
 
 	    var onDeviceOrientationChangeEvent = function( event ) {
-			
-			scope.deviceOrientation.alpha=event.alpha;
-			scope.deviceOrientation.beta=event.beta;
-			scope.deviceOrientation.gamma=event.gamma;
-			
-			
-			scope.updateAlphaOffsetAngle( );
-			console.log(that)
-			// arrow.innerHTML = '@@@%%    '+JSON.stringify(that);
+			scope.deviceOrientation=event;
+			// scope.deviceOrientation.alpha=event.alpha;
+			// scope.deviceOrientation.beta=event.beta;
+			// scope.deviceOrientation.gamma=event.gamma;
 
 	    };
 
@@ -7188,7 +7182,7 @@
 			
 	        window.addEventListener( 'orientationchange', onScreenOrientationChangeEvent, { passive: true } );
 	        window.addEventListener( 'deviceorientation', onDeviceOrientationChangeEvent, { passive: true } );
-	        // window.addEventListener( 'deviceorientation', this.update.bind( this ), { passive: true } );
+	        window.addEventListener( 'deviceorientation', this.update.bind( this ), { passive: true } );
 
 	        scope.domElement.addEventListener( 'touchstart', onTouchStartEvent, { passive: false } );
 	        scope.domElement.addEventListener( 'touchmove', onTouchMoveEvent, { passive: false } );
@@ -7201,7 +7195,7 @@
 			
 	        window.removeEventListener( 'orientationchange', onScreenOrientationChangeEvent, false );
 	        window.removeEventListener( 'deviceorientation', onDeviceOrientationChangeEvent, false );
-	        // window.removeEventListener( 'deviceorientation', this.update.bind( this ), false );
+	        window.removeEventListener( 'deviceorientation', this.update.bind( this ), false );
 
 	        scope.domElement.removeEventListener( 'touchstart', onTouchStartEvent, false );
 	        scope.domElement.removeEventListener( 'touchmove', onTouchMoveEvent, false );
@@ -7211,12 +7205,12 @@
 	    };
 
 	    this.update = function( ignoreUpdate ) {
-			console.log('@@@@@@@')
-			// console.log(scope)
-	        // if ( scope.enabled === false ) return;
 			
-			// arrow.innerHTML+='2'
-			arrow.innerHTML = '###   '+JSON.stringify(scope);
+			console.log(scope.enabled)
+	        if ( scope.enabled === false ) return;
+			
+			arrow.innerHTML+='3'
+			// arrow.innerHTML = '###   '+JSON.stringify(scope);
 
 	        var alpha = scope.deviceOrientation.alpha ? THREE.Math.degToRad( scope.deviceOrientation.alpha ) + scope.alphaOffsetAngle : 0; // Z
 	        var beta = scope.deviceOrientation.beta ? THREE.Math.degToRad( scope.deviceOrientation.beta ) : 0; // X'
@@ -7232,7 +7226,7 @@
 
 	    this.updateAlphaOffsetAngle = function( angle ) {
 
-	        this.alphaOffsetAngle = angle||0;
+	        this.alphaOffsetAngle = angle;
 	        this.update();
 
 	    };
@@ -8379,10 +8373,10 @@
 
 	        index = ( index >= 0 && index < this.controls.length ) ? index : 0;
 
-	        this.control.enabled = false;
-
+	        // this.control.enabled = false;
+			// console.log(this.control)
 	        this.control = this.controls[ index ];
-
+// console.log(this.control)
 	        this.control.enabled = true;
 
 	        switch ( index ) {
