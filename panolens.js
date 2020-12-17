@@ -7095,7 +7095,7 @@
 			scope.deviceOrientation.gamma=event.gamma;
 			
 			var arrow = document.getElementById("arrow");
-			that.update()
+			scope.updateAlphaOffsetAngle( );
 			console.log(that)
 			// arrow.innerHTML = '@@@%%    '+JSON.stringify(that);
 
@@ -7234,7 +7234,7 @@
 
 	    this.updateAlphaOffsetAngle = function( angle ) {
 
-	        this.alphaOffsetAngle = angle;
+	        this.alphaOffsetAngle = angle||0;
 	        this.update();
 
 	    };
