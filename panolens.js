@@ -7088,7 +7088,7 @@
 	    this.alphaOffsetAngle = 0;
 
 		var arrow = document.getElementById("arrow");
-		
+
 	    var onDeviceOrientationChangeEvent = function( event ) {
 			
 			scope.deviceOrientation.alpha=event.alpha;
@@ -7103,9 +7103,7 @@
 	    };
 
 	    var onScreenOrientationChangeEvent = function() {
-			
 			scope.screenOrientation = window.orientation || 0;
-			scope.update()
 	    };
 
 	    var onTouchStartEvent = function (event) {
@@ -7214,11 +7212,11 @@
 
 	    this.update = function( ignoreUpdate ) {
 			console.log('@@@@@@@')
-	        if ( scope.enabled === false ) return;
+			// console.log(scope)
+	        // if ( scope.enabled === false ) return;
 			
 			arrow.innerHTML+='2'
 			// arrow.innerHTML = '###   '+JSON.stringify(that);
-
 
 	        var alpha = scope.deviceOrientation.alpha ? THREE.Math.degToRad( scope.deviceOrientation.alpha ) + scope.alphaOffsetAngle : 0; // Z
 	        var beta = scope.deviceOrientation.beta ? THREE.Math.degToRad( scope.deviceOrientation.beta ) : 0; // X'
