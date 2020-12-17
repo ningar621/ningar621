@@ -118,6 +118,7 @@
     viewer_main.add( three_floor_stair, three_floor_Chicago );
     //获取陀螺仪
     viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
+    //不知啥用--目前
     // viewer_main.enableEffect( PANOLENS.MODES.CARDBOARD );
     // viewer_main.enableControl( PANOLENS.CONTROLS.ORBIT );
     // viewer_main.enableEffect( PANOLENS.MODES.NORMAL );
@@ -146,50 +147,6 @@
         // console.log("z坐标:"+selected.point.z);
       }
     });
-    // console.log(viewer_main)
-    // window.getGyro();
-    function getGyro(){
-      // let that = this;
-      // let text = "";
-      // let deg=0;
-      // const baseZ=4352;
-      // const baseX=8704
-      // let timer=null;
-      // let x=0,y=0,z=0;
-      // timer=setInterval(function(){
-      //   deg++;
-      //   deg=deg>360?0:deg;
-      //   if(deg==360)clearInterval(timer);
-      //   z=deg<181?((deg-90)%180*baseZ/90).toFixed(2):((270-deg)%180*baseZ/90).toFixed(2)
-      //   x=deg>180?baseX:-baseX
-      //   console.log(z)
-      //   console.log(deg)
-      //   viewer_main.tweenControlCenter(new THREE.Vector3( Number(x), -620.15, Number(z) ));
-      // },50)
-      var arrow = document.getElementById("arrow");  
-      window.addEventListener('deviceorientation', function(e){
-        
-          // that.absolute= e.absolute;
-          // that.alpha= (parseInt(e.alpha)).toFixed(2);
-          // that.beta= (parseInt(e.beta)).toFixed(2);
-          // that.gamma= (parseInt(e.gamma)).toFixed(2);
-          
-          // text = ""  
-          
-          // text += "位置：absolute{" + Math.round(that.absolute) + "deg)<p>";  
-          // text += "左右旋转：rotate alpha{" + Math.round(that.alpha) + "deg)<p>";  //右转是0，到正面360
-          // text += "前后旋转：rotate beta{" + Math.round(that.beta) + "deg)<p>";  //平躺向上是0，竖90，趴下180
-          // text += "扭转设备：rotate gamma{" + Math.round(that.gamma) + "deg)<p>"; //右 正，左负；最大+-90
-
-          arrow.innerHTML += this;
-          // let alpha=0;
-          // if(Math.abs(that.alpha-90)<90){
-          // alpha=(Math.abs(that.alpha-90)*baseLimit*-1/360).toFixed(2)
-          // }else{
-          // alpha=(Math.abs(that.alpha-90)*baseLimit/360).toFixed(2)
-          // }
-          // viewer_main.tweenControlCenter(new THREE.Vector3( -4520.96, -620.15, alpha ));
-      },true);
     }
   </script>
   </body>
