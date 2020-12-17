@@ -7205,11 +7205,11 @@
 	    };
 
 	    this.update = function( ignoreUpdate ) {
-			
-			console.log(scope.enabled)
+			// console.log('@@@@@@@')
+			// console.log(scope)
 	        if ( scope.enabled === false ) return;
 			
-			arrow.innerHTML+='3'
+			arrow.innerHTML='2@@@@'
 			// arrow.innerHTML = '###   '+JSON.stringify(scope);
 
 	        var alpha = scope.deviceOrientation.alpha ? THREE.Math.degToRad( scope.deviceOrientation.alpha ) + scope.alphaOffsetAngle : 0; // Z
@@ -8373,10 +8373,10 @@
 
 	        index = ( index >= 0 && index < this.controls.length ) ? index : 0;
 
-	        // this.control.enabled = false;
-			// console.log(this.control)
+	        this.control.enabled = false;
+
 	        this.control = this.controls[ index ];
-// console.log(this.control)
+
 	        this.control.enabled = true;
 
 	        switch ( index ) {
