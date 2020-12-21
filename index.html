@@ -37,17 +37,19 @@
       }
       #progress {
         width: 0;
-        height: 10px;
+        height: 4px;
         position: fixed;
         top: 0;
-        background: #f00;
+        background: #00f;
+        border-radius: 2px;
         -webkit-transition: opacity 0.5s ease;
         transition: opacity 0.5s ease;
       }
       #progress.finish {
         opacity: 0;
       }
-      #arrow{position: fixed;bottom: 0;width: 100%;background: #000;height: 100px;color: #fff; overflow: auto;}
+      #arrow{position: fixed;top: 10px;width: 100%;}
+      #error{position: fixed;bottom: 0;width: 100%;background: #000;height: 100px;color: #fff; overflow: auto;}
     </style>
   </head>
   <body>
@@ -56,11 +58,65 @@
   <!-- <script src="./panolens.min.js"></script> -->
   <div id="panolens-separate-container"></div>
   <div id="progress"></div>
-  <div id="arrow">2</div>
+  <script>
+    // 判断是否是 ios 设备    
+    function getIos() {
+        var u = window.navigator.userAgent;
+        return !! u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+      }
+
+      function requestPermissionsIOS() {
+        requestDeviceMotionIOS();
+        requestDeviceOrientationIOS();
+      }
+
+      function requestDeviceMotionIOS() {
+        if (typeof(window.DeviceMotionEvent).requestPermission === 'function') { 
+          (window.DeviceMotionEvent).requestPermission().then(permissionState =>{
+
+            if (permissionState === 'granted') {
+              window.addEventListener('devicemotion', () =>{
+
+              });
+            }
+          }).
+          catch((err) =>{
+            alert(JSON.stringify(err)); alert("用户未允许权限");
+          })
+        } else {
+          // handle regular non iOS 13+ devices
+        }
+      }
+
+      // requesting device orientation permission
+      function requestDeviceOrientationIOS() {
+        if (typeof(DeviceOrientationEvent).requestPermission === 'function') { (
+          DeviceOrientationEvent).requestPermission().then(permissionState =>{
+            if (permissionState === 'granted') {
+              window.addEventListener('deviceorientation', () =>{
+
+             });
+            }
+          }).
+          catch((err) =>{
+            alert(JSON.stringify(err)); alert("用户未允许权限");
+          })
+        } else {
+          // handle regular non iOS 13+ devices
+        }
+      }
+      function testClick() {
+        requestPermissionsIOS();
+      }
+  </script>
+  <div id="arrow"><button onclick="testClick()">苹果兼容</button></div>
+  <div id="error">123</div>
   <script>
     var viewer_main,three_floor_stair,three_floor_Chicago;
+    var Widget;
     var spotChicago;
     progressElement = document.getElementById( 'progress' );
+    var arrow = document.getElementById( 'arrow' );
     function onEnter ( event ) {
         progressElement.style.width = 0;
         progressElement.classList.remove( 'finish' );
@@ -76,6 +132,9 @@
     // Main panorama//{ initialLookAt: new THREE.Vector3( 2953.93, 1891.55, 5213.46 ) }
     viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: 'overlay', viewIndicator: true, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
     
+    
+    // Widget=new PANOLENS.Widget(arrow);
+    // Widget.addControlBar()
     const logEvent = ( { type } ) => console.log( type );
     // panorama_main_video = new PANOLENS.VideoPanorama( 'asset/textures/video/ClashofClans.mp4', { autoplay: true, muted: false });
     //三楼楼梯口
