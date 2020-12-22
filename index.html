@@ -194,9 +194,9 @@
     if(getIos()){
       arrow.style.display='block';
       viewer_main.enableControl( PANOLENS.CONTROLS.ORBIT );
-    }else{
-      viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
     }
+    viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
+    
     // viewer_main.enableEffect( PANOLENS.MODES.CARDBOARD );
     // viewer_main.enableControl( PANOLENS.CONTROLS.ORBIT );
     // viewer_main.enableEffect( PANOLENS.MODES.NORMAL );
