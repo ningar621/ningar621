@@ -48,7 +48,7 @@
       #progress.finish {
         opacity: 0;
       }
-      #arrow{position: fixed;top: 10px;width: 100%;}
+      #arrow{position: fixed;top: 10px;width: 100%; display: none;}
       #error{position: fixed;bottom: 0;width: 100%;background: #000;height: 100px;color: #fff; overflow: auto;}
     </style>
   </head>
@@ -61,62 +61,61 @@
   <script>
     // 判断是否是 ios 设备    
     function getIos() {
-        var u = window.navigator.userAgent;
-        return !! u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+      let u = window.navigator.userAgent;
+      return !! u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    }
+    function requestPermissionsIOS() {
+      requestDeviceMotionIOS();
+      requestDeviceOrientationIOS();
+    }
+    function requestDeviceMotionIOS() {
+      if (typeof(window.DeviceMotionEvent).requestPermission === 'function') { 
+        (window.DeviceMotionEvent).requestPermission().then(permissionState =>{
+
+          if (permissionState === 'granted') {
+            window.addEventListener('devicemotion', () =>{
+
+            });
+          }
+        }).
+        catch((err) =>{
+          alert(JSON.stringify(err)); alert("用户未允许权限");
+        })
+      } else {
+        // handle regular non iOS 13+ devices
       }
+    }
 
-      function requestPermissionsIOS() {
-        requestDeviceMotionIOS();
-        requestDeviceOrientationIOS();
+    // requesting device orientation permission
+    function requestDeviceOrientationIOS() {
+      if (typeof(DeviceOrientationEvent).requestPermission === 'function') { (
+        DeviceOrientationEvent).requestPermission().then(permissionState =>{
+          if (permissionState === 'granted') {
+            window.addEventListener('deviceorientation', () =>{
+
+            });
+          }
+        }).
+        catch((err) =>{
+          alert(JSON.stringify(err)); alert("用户未允许权限");
+        })
+      } else {
+        // handle regular non iOS 13+ devices
       }
-
-      function requestDeviceMotionIOS() {
-        if (typeof(window.DeviceMotionEvent).requestPermission === 'function') { 
-          (window.DeviceMotionEvent).requestPermission().then(permissionState =>{
-
-            if (permissionState === 'granted') {
-              window.addEventListener('devicemotion', () =>{
-
-              });
-            }
-          }).
-          catch((err) =>{
-            alert(JSON.stringify(err)); alert("用户未允许权限");
-          })
-        } else {
-          // handle regular non iOS 13+ devices
-        }
-      }
-
-      // requesting device orientation permission
-      function requestDeviceOrientationIOS() {
-        if (typeof(DeviceOrientationEvent).requestPermission === 'function') { (
-          DeviceOrientationEvent).requestPermission().then(permissionState =>{
-            if (permissionState === 'granted') {
-              window.addEventListener('deviceorientation', () =>{
-
-             });
-            }
-          }).
-          catch((err) =>{
-            alert(JSON.stringify(err)); alert("用户未允许权限");
-          })
-        } else {
-          // handle regular non iOS 13+ devices
-        }
-      }
-      function testClick() {
+    }
+    function testClick() {
         requestPermissionsIOS();
-      }
+    }
   </script>
   <div id="arrow"><button onclick="testClick()">苹果兼容</button></div>
   <div id="error">123</div>
   <script>
-    var viewer_main,three_floor_stair,three_floor_Chicago;
-    var Widget;
-    var spotChicago;
+    let viewer_main,three_1,three_2,three_3,three_4;
+    let Widget;
+    let spotChicago;
     progressElement = document.getElementById( 'progress' );
-    var arrow = document.getElementById( 'arrow' );
+    let arrow = document.getElementById( 'arrow' );
+    
     function onEnter ( event ) {
         progressElement.style.width = 0;
         progressElement.classList.remove( 'finish' );
@@ -132,61 +131,81 @@
     // Main panorama//{ initialLookAt: new THREE.Vector3( 2953.93, 1891.55, 5213.46 ) }
     viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: 'overlay', viewIndicator: true, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
     
-    
-    // Widget=new PANOLENS.Widget(arrow);
-    // Widget.addControlBar()
-    const logEvent = ( { type } ) => console.log( type );
+    let logEvent = ( { type } ) => console.log( type );
     // panorama_main_video = new PANOLENS.VideoPanorama( 'asset/textures/video/ClashofClans.mp4', { autoplay: true, muted: false });
     //三楼楼梯口
-    three_floor_stair = new PANOLENS.ImagePanorama( 'asset/textures/three_floor_stair.jpg' );
-    three_floor_stair.addEventListener( 'progress', function(e){
-      onProgress(e,spotChicago)
+    three_1 = new PANOLENS.ImagePanorama( 'asset/textures/three_1.jpeg' );
+    three_1.addEventListener( 'progress', function(e){
+      onProgress(e,spotXZ)
     });
-    three_floor_stair.addEventListener( 'enter', onEnter );
-    //芝加哥会议室门口
-    three_floor_Chicago = new PANOLENS.ImagePanorama( 'asset/textures/three_floor_Chicago.jpg' );
-    three_floor_Chicago.addEventListener( 'progress', function(e){
-      onProgress(e,spotWC)
+    three_1.addEventListener( 'enter', onEnter );
+    //行政部
+    three_2 = new PANOLENS.ImagePanorama( 'asset/textures/three_2.jpeg' );
+    three_2.addEventListener( 'progress', function(e){
+      onProgress(e,spotNA)
     });
-    three_floor_Chicago.addEventListener( 'enter', onEnter );
-    
+    three_2.addEventListener( 'enter', onEnter );
+    three_3 = new PANOLENS.ImagePanorama( 'asset/textures/three_3.jpeg' );
+    three_3.addEventListener( 'progress', function(e){
+      onProgress(e,spotNA)
+    });
+    three_3.addEventListener( 'enter', onEnter );
+    three_4 = new PANOLENS.ImagePanorama( 'asset/textures/three_4.jpeg' );
+    three_4.addEventListener( 'progress', function(e){
+      onProgress(e,spotNA)
+    });
+    three_4.addEventListener( 'enter', onEnter );
     // 图片切换图标
     // infospot1.addEventListener( 'click', function(){
     //   viewer_main.tweenControlCenterByObject( cube );
     // } );
-    three_floor_stair.link( three_floor_Chicago, new THREE.Vector3( -4479.72, -1729.70,1366.45 ),300,'','up');
-
-    three_floor_Chicago.link( three_floor_stair, new THREE.Vector3(-2668.35, -620.15, 93.96 ),300,'','up');
-    
+    three_1.link( three_2, new THREE.Vector3(4317.34, -2337.87, 930.03 ),300,'','up');
+    three_2.link( three_1, new THREE.Vector3(-2668.35, -620.15, 93.96 ),300,'','up');
+    three_2.link( three_3, new THREE.Vector3(155.56, -832.46, 4920.29 ),300,'','up');
+    three_3.link( three_4, new THREE.Vector3(-4876.94, -1036.19, 209.44),300,'','up');
+    three_4.link( three_1, new THREE.Vector3(-7.03, -703.50, -4947.39),300,'','up');
+    three_1.link( three_4, new THREE.Vector3(228.62, -995.62, 4884.00),300,'','up');
     //地点标示
+    spotXZ = new PANOLENS.Infospot( 350, PANOLENS.DataImage.Info );
+    spotXZ.position.set( 4934.51, -209.82, -710.54);
+    spotXZ.addHoverText( '行政部' );
+    
     spotChicago = new PANOLENS.Infospot( 350, PANOLENS.DataImage.Info );
-    spotChicago.position.set( -4520.96, -620.15, 2031.96 );
+    spotChicago.position.set(-1120.33, -554.15, -4833.36 );
     spotChicago.addHoverText( '芝加哥会议室' );
-    three_floor_stair.add( spotChicago );
+    three_1.add( spotChicago,spotXZ );
 
-    spotWC = new PANOLENS.Infospot( 350, PANOLENS.DataImage.Info );
-    spotWC.position.set( 4851.08, -391.01, -1037.34 );
-    spotWC.addHoverText( '厕所' );
+    spotNA = new PANOLENS.Infospot( 350, PANOLENS.DataImage.Info );
+    spotNA.position.set( 139.76, -1317.78, 4812.07 );
+    spotNA.addHoverText( '北美洲' );
+
+    spotBBY = new PANOLENS.Infospot( 350, PANOLENS.DataImage.Info );
+    spotBBY.position.set( 1598.36, -272.83, 4723.37);
+    spotBBY.addHoverText( '北冰洋' );
 
     spotStair = new PANOLENS.Infospot( 350, PANOLENS.DataImage.Info );
     spotStair.position.set(-4956.35, -432.20, 448.92 );
     spotStair.addHoverText( '三楼楼梯口' );
-    three_floor_Chicago.add( spotStair,spotWC );
+    three_2.add( spotStair,spotNA,spotBBY );
 
     //添加场景图
-    viewer_main.add( three_floor_stair, three_floor_Chicago );
+    viewer_main.add( three_1, three_2,three_3,three_4 );
     //获取陀螺仪
-    viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
-    //不知啥用--目前
+    if(getIos()){
+      arrow.style.display='block';
+      viewer_main.enableControl( PANOLENS.CONTROLS.ORBIT );
+    }else{
+      viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
+    }
     // viewer_main.enableEffect( PANOLENS.MODES.CARDBOARD );
     // viewer_main.enableControl( PANOLENS.CONTROLS.ORBIT );
     // viewer_main.enableEffect( PANOLENS.MODES.NORMAL );
 
     //获取地理位置
-    three_floor_stair.addEventListener('click',  function(e){
-      var camera=viewer_main.getCamera();
-      var scence=viewer_main.getScene();
-      var vector = new THREE.Vector3();//三维坐标对象
+    three_1.addEventListener('click',  function(e){
+      let camera=viewer_main.getCamera();
+      let scence=viewer_main.getScene();
+      let vector = new THREE.Vector3();//三维坐标对象
       
       vector.set(
         ( (e.clientX||e.mouseEvent.clientX) / window.innerWidth ) * 2 - 1,
@@ -194,11 +213,11 @@
         0.5 );
       vector.unproject( camera );
       
-      var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
-      var intersects = raycaster.intersectObjects(scence.children);
+      let raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
+      let intersects = raycaster.intersectObjects(scence.children);
       
       if (intersects.length > 0) {
-        var selected = intersects[0];//取第一个物体
+        let selected = intersects[0];//取第一个物体
         // console.log('xy正负互换')
         // console.log("x坐标:"+selected.point.x);
         // console.log("y坐标:"+selected.point.y);
