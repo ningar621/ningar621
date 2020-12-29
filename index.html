@@ -129,7 +129,7 @@
         }   
       }
     // Main panorama//{ initialLookAt: new THREE.Vector3( 2953.93, 1891.55, 5213.46 ) }
-    viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: 'overlay', viewIndicator: true, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
+    viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: 'overlay', viewIndicator: false, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
     
     let logEvent = ( { type } ) => console.log( type );
     // panorama_main_video = new PANOLENS.VideoPanorama( 'asset/textures/video/ClashofClans.mp4', { autoplay: true, muted: false });
@@ -193,10 +193,16 @@
     //获取陀螺仪
     if(getIos()){
       arrow.style.display='block';
-      viewer_main.enableControl( PANOLENS.CONTROLS.ORBIT );
+      if (typeof(window.DeviceMotionEvent).requestPermission === 'function') { 
+        (window.DeviceMotionEvent).requestPermission().then(permissionState =>{
+          if (permissionState === 'granted') {
+            arrow.style.display='none';
+          }
+        })
+      }
+    }else{
+      viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
     }
-    viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
-    
     // viewer_main.enableEffect( PANOLENS.MODES.CARDBOARD );
     // viewer_main.enableControl( PANOLENS.CONTROLS.ORBIT );
     // viewer_main.enableEffect( PANOLENS.MODES.NORMAL );
