@@ -408,7 +408,6 @@ function canvasMap(){
     //获取陀螺仪
     if(getIos()){
       oIos.style.display='block';
-      // let oerror=document.getElementById('error');
       oIos.onclick=function(){
         testClick(viewer_main,oIos);
       }
@@ -425,4 +424,8 @@ function canvasMap(){
       oIos.style.display='none';
       viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
     }
+    let oError=document.getElementById('error');
+    window.addEventListener( 'onerror', function(e){
+      oError.innerHTML=JSON.stringify(e)
+    });
 }
