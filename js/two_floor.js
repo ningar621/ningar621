@@ -107,6 +107,10 @@ function canvasMap(){
     spotAustralia1.position.set( 4980.42, -355.86, -106.81 );
     spotAustralia1.addHoverText( '澳洲' );
 
+    spotAustralia1_1 = new PANOLENS.Infospot( 180, PANOLENS.DataImage.Info );
+    spotAustralia1_1.position.set( 4980.42, -955.86, -106.81 );
+    spotAustralia1_1.addHoverText( '澳洲111' );
+
     tspotWC1 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.Info );
     tspotWC1.position.set( -355.71, -145.02, -4975.66 );
     tspotWC1.addHoverText( '卫生间' );
@@ -135,7 +139,7 @@ function canvasMap(){
       // viewer_main.setPanorama( two_2 );
     });
 
-    two_1.add(tcenter1,spotSingapore1,spotKualaLumpur1,spotLatinAmerica1,tspotRight1,spotRight1_2,spotLeft1,spotLeft1_2,spotAustralia1,spotBangkok,tspotWC1,spotNewDelhi);
+    two_1.add(spotAustralia1_1,tcenter1,spotSingapore1,spotKualaLumpur1,spotLatinAmerica1,tspotRight1,spotRight1_2,spotLeft1,spotLeft1_2,spotAustralia1,spotBangkok,tspotWC1,spotNewDelhi);
     //二楼场景2
     tcenter2 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
     tcenter2.position.set( 389.21, 51.22, 4977.59 );
@@ -188,14 +192,14 @@ function canvasMap(){
     spotKualaLumpur4.position.set( -889.92, -54.65, -4912.27 );
     spotKualaLumpur4.addHoverText( '吉隆坡' );
 
-    tspotRight4 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
-    tspotRight4.position.set( -794.40, -912.90, -4841.04 );
+    spotRight4 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
+    spotRight4.position.set( -794.40, -912.90, -4841.04 );
 
-    spotLatinAmerica4 = new PANOLENS.Infospot( 180, PANOLENS.DataImage.Info );
+    spotLatinAmerica4 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.Info );
     spotLatinAmerica4.position.set( -771.63, -707.55, -4879.86 );
     spotLatinAmerica4.addHoverText( '拉丁美洲' );
 
-    two_4.add(tcenter4,tspotWC4,spotAustralia4,spotSingapore4,spotKualaLumpur4,spotLatinAmerica4,tspotRight4);
+    two_4.add(tcenter4,tspotWC4,spotAustralia4,spotSingapore4,spotKualaLumpur4,spotLatinAmerica4,spotRight4);
     //切换场景
     two_1.link( two_2, new THREE.Vector3(4566.67, -2021.80, -52.69),300,'','up');
     two_1.link( two_4, new THREE.Vector3(-19.50, -2038.02, 4560.93),300,'','up');
