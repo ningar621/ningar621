@@ -349,7 +349,7 @@ function canvasMap(){
     tcenter4 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
     tcenter4.position.set(500.98, -52.86, -4989.96);
 
-    spotAustralia4 = new PANOLENS.Infospot( 400, PANOLENS.DataImage.Info );
+    spotAustralia4 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.Info );
     spotAustralia4.position.set( 4993.25, -99.08, 54.43 );
     spotAustralia4.addHoverText( '澳洲' );
 
@@ -393,8 +393,8 @@ function canvasMap(){
     three_1.link( two_1, new THREE.Vector3(1145.17, -2295.12, 4284.45),300,'','right');
 
     three_2.link( three_1, new THREE.Vector3(-2668.35, -620.15, 93.96 ),300,'','up');
-    three_2.link( three_3, new THREE.Vector3( 13.85, -3159.73, 3870.29),400,'','up');
-
+    three_2.link( three_3, new THREE.Vector3( 13.85, -2159.73, 3870.29),300,'','up');
+  
     three_3.link( three_2, new THREE.Vector3(196.98, -1173.53, -4849.75),300,'','up');
     three_3.link( three_4, new THREE.Vector3(-4693.19, -1676.79, 257.62),300,'','up');
     
