@@ -61,7 +61,7 @@ function canvasMap(){
             progressElement.classList.add( 'finish' );
         }   
     }
-    viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: '', viewIndicator: false, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
+    viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: 'console', viewIndicator: false, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
     //三楼楼梯口
     three_1 = new PANOLENS.ImagePanorama( 'asset/textures/three_1.jpeg' );
     three_1.addEventListener( 'progress', function(e){
@@ -322,7 +322,7 @@ function canvasMap(){
     two_1.add(tcenter1,spotSingapore1,spotKualaLumpur1,spotLatinAmerica1,tspotRight1,spotRight1_2,spotLeft1,spotAustralia1,spotBangkok,tspotWC1,spotNewDelhi);
     //二楼场景2
     tcenter2 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
-    tcenter2.position.set(396.24, -49.26, 4977.30);
+    tcenter2.position.set(389.21, 51.22, 4977.59);
    
     spotRight2 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
     spotRight2.position.set( 386.38, -472.93, 4954.79 );
