@@ -1,3 +1,4 @@
+
 function canvasMap(){
     let viewer_main,three_1,three_2,three_3,three_4,center1,center2,center3,center4;
     let two_1,two_2,two_3,two_4,tcenter1,tcenter2,tcenter3,tcenter4;
@@ -6,43 +7,42 @@ function canvasMap(){
     let spotRight3,spotRight3_2,spotLeft3, spotLasVegas3,spotLosAngeles3,spotSanDiego3,spotHawaii3,spotNA3,spotSanFrancisco3,spotSeattle3;
     let spotRight4,spotRight4_2, spotChicago4,spotHouston4,spotWC4,spotHawaii4,spotSanDiego4,spotLosAngeles4,spotLasVegas4;
     let progressElement = document.getElementById( 'progress' );
-
     function onEnter ( event ) {
         progressElement.style.width = 0;
         progressElement.classList.remove( 'finish' );
       }
-      function onProgress ( event ,spot) {
+    function onProgress ( event ,spot) {
         progress = event.progress.loaded / event.progress.total * 100;
         progressElement.style.width = progress + '%';
         if ( progress === 100 ) {
-          spot.focus( 1000, TWEEN.Easing['Exponential'][ 'out'] );
-          progressElement.classList.add( 'finish' );
+            // spot.focus( 1000, TWEEN.Easing['Exponential'][ 'out'] );
+            viewer_main.tweenControlCenterByObject(spot)
+            progressElement.classList.add( 'finish' );
         }   
-      }
+    }
     viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: 'console', viewIndicator: false, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
     //三楼楼梯口
     three_1 = new PANOLENS.ImagePanorama( 'asset/textures/three_1.jpeg' );
     three_1.addEventListener( 'progress', function(e){
-    //   onProgress(e,spotXZ)
-        viewer_main.tweenControlCenterByObject(center1)
+      onProgress(e,center1)
     });
     three_1.addEventListener( 'enter', onEnter );
     //行政部
     three_2 = new PANOLENS.ImagePanorama( 'asset/textures/three_2.jpeg' );
     three_2.addEventListener( 'progress', function(e){
-        viewer_main.tweenControlCenterByObject(center2)
+        onProgress(e,center2)
     });
     three_2.addEventListener( 'enter', onEnter );
     //资产
     three_3 = new PANOLENS.ImagePanorama( 'asset/textures/three_3.jpeg' );
     three_3.addEventListener( 'progress', function(e){
-        viewer_main.tweenControlCenterByObject(center3)
+        onProgress(e,center3)
     });
     three_3.addEventListener( 'enter', onEnter );
     //拉斯维加斯
     three_4 = new PANOLENS.ImagePanorama( 'asset/textures/three_4.jpeg' );
     three_4.addEventListener( 'progress', function(e){
-        viewer_main.tweenControlCenterByObject(center4)
+        onProgress(e,center4)
     });
     three_4.addEventListener( 'enter', onEnter );
     //地点标示
@@ -215,25 +215,25 @@ function canvasMap(){
     //二楼楼梯口
     two_1 = new PANOLENS.ImagePanorama( 'asset/textures/two_1.jpeg' );
     two_1.addEventListener( 'progress', function(e){
-        viewer_main.tweenControlCenterByObject(tcenter1)
+        onProgress(e,tcenter1)
     });
     two_1.addEventListener( 'enter', onEnter );
     //二楼场景2
     two_2 = new PANOLENS.ImagePanorama( 'asset/textures/two_2.jpeg' );
     two_2.addEventListener( 'progress', function(e){
-        viewer_main.tweenControlCenterByObject(tcenter2)
+        onProgress(e,tcenter2)
     });
     two_2.addEventListener( 'enter', onEnter );
     //二楼场景3
     two_3 = new PANOLENS.ImagePanorama( 'asset/textures/two_3.jpeg' );
     two_3.addEventListener( 'progress', function(e){
-        viewer_main.tweenControlCenterByObject(tcenter3)
+        onProgress(e,tcenter3)
     });
     two_3.addEventListener( 'enter', onEnter );
     //二楼场景4
     two_4 = new PANOLENS.ImagePanorama( 'asset/textures/two_4.jpeg' );
     two_4.addEventListener( 'progress', function(e){
-        viewer_main.tweenControlCenterByObject(tcenter4)
+        onProgress(e,tcenter4)
     });
     two_4.addEventListener( 'enter', onEnter );
     //地点标示
@@ -379,6 +379,8 @@ function canvasMap(){
       }
     }else{
       oIos.style.display='none';
+      let oerror=document.getElementById('error');
+      oerror.innerHTML='123123'
       viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
     }
 }
