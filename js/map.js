@@ -407,9 +407,9 @@ function canvasMap(){
     if(getIos()){
       oIos.style.display='block';
       let oerror=document.getElementById('error');
-            oerror.innerHTML='123123     '
+      oerror.innerHTML=typeof(window.DeviceMotionEvent).requestPermission
       if (typeof(window.DeviceMotionEvent).requestPermission === 'function') { 
-        oerror.innerHTML+=typeof(window.DeviceMotionEvent).requestPermission
+        
         (window.DeviceMotionEvent).requestPermission().then(permissionState =>{
           if (permissionState === 'granted') {
             oIos.style.display='none';
