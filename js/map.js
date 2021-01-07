@@ -373,14 +373,57 @@ function canvasMap(){
             oIos.style.display='none';
             viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
           }else{
-            
+            let oerror=document.getElementById('error');
+            oerror.innerHTML='123123'
+            oIos.onclick=function(){
+              testClick(viewer_main);
+            }
           }
         })
       }
     }else{
       oIos.style.display='none';
-    //   let oerror=document.getElementById('error');
-    //   oerror.innerHTML='123123'
+    
       viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
     }
+}
+// 判断是否是 ios 设备    
+function getIos() {
+  let u = window.navigator.userAgent;
+  return !! u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+}
+function requestPermissionsIOS(obj) {
+  requestDeviceMotionIOS(obj);
+  requestDeviceOrientationIOS(obj);
+}
+function requestDeviceMotionIOS(obj) {
+  if (typeof(window.DeviceMotionEvent).requestPermission === 'function') { 
+      (window.DeviceMotionEvent).requestPermission().then(permissionState =>{
+          if (permissionState === 'granted') {
+            obj.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
+          }
+      }).catch((err) =>{
+          // alert(JSON.stringify(err));
+          alert("用户未允许权限");
+      })
+  } else {
+      // handle regular non iOS 13+ devices
+  }
+}
+function requestDeviceOrientationIOS(obj) {
+  if (typeof(DeviceOrientationEvent).requestPermission === 'function') { (
+      DeviceOrientationEvent).requestPermission().then(permissionState =>{
+          if (permissionState === 'granted') {
+            obj.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
+          }
+      }).catch((err) =>{
+          // alert(JSON.stringify(err));
+          alert("用户未允许权限");
+      })
+  } else {
+      // handle regular non iOS 13+ devices
+  }
+}
+function testClick(obj) {
+  requestPermissionsIOS(obj);
 }
