@@ -379,8 +379,8 @@ function canvasMap(){
       }
     }else{
       oIos.style.display='none';
-      let oerror=document.getElementById('error');
-      oerror.innerHTML='123123'
+    //   let oerror=document.getElementById('error');
+    //   oerror.innerHTML='123123'
       viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
     }
 }
