@@ -247,10 +247,10 @@ function canvasMap(){
 
     three_4.add(center4,spotRight4,spotRight4_2, spotChicago4,spotHouston4,spotWC4,spotHawaii4,spotSanDiego4,spotLosAngeles4,spotLasVegas4);
     //二层场景图
-    let tspotRight1, tspotChicago1,tspotXZ1,tspotHouston1,tspotWC1,tspotHawaii1,tspotSanDiego1,tspotLosAngeles1,tspotLasVegas1;
-    // let spotleft2, spotLasVegas2,spotLosAngeles2,spotSanDiego2,spotHawaii2,spotStair,spotNA,spotSanFrancisco,spotSeattle;
-    // let spotRight3,spotRight3_2,spotLeft3, spotLasVegas3,spotLosAngeles3,spotSanDiego3,spotHawaii3,spotNA3,spotSanFrancisco3,spotSeattle3;
-    // let spotRight4,spotRight4_2, spotChicago4,spotHouston4,spotWC4,spotHawaii4,spotSanDiego4,spotLosAngeles4,spotLasVegas4;
+    let spotSingapore1,spotKualaLumpur1,spotLatinAmerica1,spotRight1,spotRight1_2,spotLeft1,spotAustralia1,spotBangkok,spotWC1,spotNewDelhi;
+    let spotRight2,spotAustralia2;
+    let spotWC3,spotAustralia3;
+    let spotWC4,spotAustralia4,spotSingapore4,spotKualaLumpur4,spotLatinAmerica4,spotRight4;
     //二楼楼梯口
     two_1 = new PANOLENS.ImagePanorama( 'asset/textures/two_1.jpeg' );
     two_1.addEventListener( 'progress', function(e){
@@ -407,18 +407,17 @@ function canvasMap(){
     if(getIos()){
       oIos.style.display='block';
       let oerror=document.getElementById('error');
-      
+      oIos.onclick=function(){
+        testClick(viewer_main);
+      }
       if (typeof(window.DeviceMotionEvent).requestPermission === 'function') { 
-        
         (window.DeviceMotionEvent).requestPermission().then(permissionState =>{
+          oerror.innerHTML=permissionState;
           if (permissionState === 'granted') {
             oIos.style.display='none';
             viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
           }else{
-            oerror.innerHTML='123123';
-            oIos.onclick=function(){
-              testClick(viewer_main);
-            }
+            
           }
         })
       }
