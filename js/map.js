@@ -406,14 +406,16 @@ function canvasMap(){
     //获取陀螺仪
     if(getIos()){
       oIos.style.display='block';
+      let oerror=document.getElementById('error');
+            oerror.innerHTML='123123     '
       if (typeof(window.DeviceMotionEvent).requestPermission === 'function') { 
+        oerror.innerHTML+=typeof(window.DeviceMotionEvent).requestPermission
         (window.DeviceMotionEvent).requestPermission().then(permissionState =>{
           if (permissionState === 'granted') {
             oIos.style.display='none';
             viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
           }else{
-            let oerror=document.getElementById('error');
-            oerror.innerHTML='123123'
+            
             oIos.onclick=function(){
               testClick(viewer_main);
             }
