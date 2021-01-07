@@ -1,5 +1,6 @@
 function canvasMap(){
     let viewer_main,three_1,three_2,three_3,three_4,center1,center2,center3,center4;
+    let two_1,two_2,two_3,two_4,tcenter1,tcenter2,tcenter3,tcenter4;
     let spotRight1, spotChicago1,spotXZ1,spotHouston1,spotWC1,spotHawaii1,spotSanDiego1,spotLosAngeles1,spotLasVegas1;
     let spotleft2, spotLasVegas2,spotLosAngeles2,spotSanDiego2,spotHawaii2,spotStair,spotNA,spotSanFrancisco,spotSeattle;
     let spotRight3,spotRight3_2,spotLeft3, spotLasVegas3,spotLosAngeles3,spotSanDiego3,spotHawaii3,spotNA3,spotSanFrancisco3,spotSeattle3;
@@ -44,19 +45,6 @@ function canvasMap(){
         viewer_main.tweenControlCenterByObject(center4)
     });
     three_4.addEventListener( 'enter', onEnter );
-    //切换场景
-    three_1.link( three_2, new THREE.Vector3(4317.34, -2337.87, 930.03),300,'','up');
-    three_1.link( three_4, new THREE.Vector3(309.05, -2179.98, 4480.31),300,'','up');
-
-    three_2.link( three_1, new THREE.Vector3(-2668.35, -620.15, 93.96 ),300,'','up');
-    three_2.link( three_3, new THREE.Vector3( 13.85, -3159.73, 3870.29),400,'','up');
-
-    three_3.link( three_2, new THREE.Vector3(196.98, -1173.53, -4849.75),300,'','up');
-    three_3.link( three_4, new THREE.Vector3(-4693.19, -1676.79, 257.62),300,'','up');
-    
-    three_4.link( three_1, new THREE.Vector3(-109.25, -1723.70, -4683.66),300,'','up');
-    three_4.link( three_3, new THREE.Vector3(4097.81, -2831.44, -364.38),300,'','up');
-    
     //地点标示
     //场景1
     center1 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
@@ -206,12 +194,12 @@ function canvasMap(){
     spotHawaii4.position.set(4660.04, -1768.11, -247.45);
     spotHawaii4.addHoverText( '夏威夷' );
     
-    spotChicago4 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.Info );
-    spotChicago4.position.set(-67.34, -619.86, -4954.12);
+    spotChicago4 = new PANOLENS.Infospot( 120, PANOLENS.DataImage.Info );
+    spotChicago4.position.set(-53.81, -314.27, -4984.83);
     spotChicago4.addHoverText( '芝加哥会议室' );
 
     spotHouston4 = new PANOLENS.Infospot( 120, PANOLENS.DataImage.Info );
-    spotHouston4.position.set(-53.81, -314.27, -4984.83);
+    spotHouston4.position.set(-86.73, -143.69, -4989.81);
     spotHouston4.addHoverText( '休斯顿会议室' );
 
     spotWC4 = new PANOLENS.Infospot( 180, PANOLENS.DataImage.Info );
@@ -220,7 +208,6 @@ function canvasMap(){
 
     three_4.add(center4,spotRight4,spotRight4_2, spotChicago4,spotHouston4,spotWC4,spotHawaii4,spotSanDiego4,spotLosAngeles4,spotLasVegas4);
     //二层场景图
-    let two_1,two_2,two_3,two_4,tcenter1,tcenter2,tcenter3,tcenter4;
     let tspotRight1, tspotChicago1,tspotXZ1,tspotHouston1,tspotWC1,tspotHawaii1,tspotSanDiego1,tspotLosAngeles1,tspotLasVegas1;
     // let spotleft2, spotLasVegas2,spotLosAngeles2,spotSanDiego2,spotHawaii2,spotStair,spotNA,spotSanFrancisco,spotSeattle;
     // let spotRight3,spotRight3_2,spotLeft3, spotLasVegas3,spotLosAngeles3,spotSanDiego3,spotHawaii3,spotNA3,spotSanFrancisco3,spotSeattle3;
@@ -249,19 +236,6 @@ function canvasMap(){
         viewer_main.tweenControlCenterByObject(tcenter4)
     });
     two_4.addEventListener( 'enter', onEnter );
-    //切换场景
-    two_1.link( two_2, new THREE.Vector3(4566.67, -2021.80, -52.69),300,'','up');
-    two_1.link( two_4, new THREE.Vector3(-19.50, -2038.02, 4560.93),300,'','up');
-
-    two_2.link( two_1, new THREE.Vector3(-2668.35, -620.15, 93.96 ),300,'','up');
-    two_2.link( two_3, new THREE.Vector3( 385.98, -1961.35, 4577.07 ),300,'','up');
-
-    two_3.link( two_2, new THREE.Vector3(157.56, -2303.43, -4428.03),300,'','up');
-    two_3.link( two_4, new THREE.Vector3(-4789.31, -1373.29, -275.31),300,'','up');
-    
-    two_4.link( two_1, new THREE.Vector3(-490.28, -1705.44, -4670.43),300,'','up');
-    two_4.link( two_3, new THREE.Vector3(4558.24, -2044.35, -15.17),300,'','up');
-    
     //地点标示
     //二楼场景1
     tcenter1 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
@@ -303,11 +277,11 @@ function canvasMap(){
 
     spotLeft1 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.leftArrow );
     spotLeft1.position.set( 4955.21, -600.01, -91.46 );
-
+    
     two_1.add(tcenter1,spotSingapore1,spotKualaLumpur1,spotLatinAmerica1,spotRight1,spotRight1_2,spotLeft1,spotAustralia1,spotBangkok,spotWC1,spotNewDelhi);
     //二楼场景2
     tcenter2 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
-    tcenter2.position.set(-379.98, 7.28, 4979.80);
+    tcenter2.position.set(396.24, -49.26, 4977.30);
    
     spotRight2 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
     spotRight2.position.set( 386.38, -472.93, 4954.79 );
@@ -358,6 +332,34 @@ function canvasMap(){
     spotLatinAmerica4.addHoverText( '拉丁美洲' );
 
     two_4.add(tcenter4,spotWC4,spotAustralia4,spotSingapore4,spotKualaLumpur4,spotLatinAmerica4,spotRight4);
+    //切换场景
+    two_1.link( two_2, new THREE.Vector3(4566.67, -2021.80, -52.69),300,'','up');
+    two_1.link( two_4, new THREE.Vector3(-19.50, -2038.02, 4560.93),300,'','up');
+    two_1.link( three_1, new THREE.Vector3(4899.70, -761.40, 605.72),300,'','left');
+    
+    two_2.link( two_1, new THREE.Vector3(-4510.14, -2115.84, 304.04),300,'','up');
+    two_2.link( two_3, new THREE.Vector3( 385.98, -1961.35, 4577.07 ),300,'','up');
+    two_2.link( three_1, new THREE.Vector3( -4939.80, -514.28, 539.22),300,'','right');
+
+    two_3.link( two_2, new THREE.Vector3(157.56, -2303.43, -4428.03),300,'','up');
+    two_3.link( two_4, new THREE.Vector3(-4789.31, -1373.29, -275.31),300,'','up');
+    
+    two_4.link( two_1, new THREE.Vector3(-490.28, -1705.44, -4670.43),300,'','up');
+    two_4.link( two_3, new THREE.Vector3(4558.24, -2044.35, -15.17),300,'','up');
+    
+    three_1.link( three_2, new THREE.Vector3(4317.34, -2337.87, 930.03),300,'','up');
+    three_1.link( three_4, new THREE.Vector3(-31.23, -2881.96, 4081.51),300,'','up');
+    three_1.link( two_1, new THREE.Vector3(1145.17, -2295.12, 4284.45),300,'','right');
+
+    three_2.link( three_1, new THREE.Vector3(-2668.35, -620.15, 93.96 ),300,'','up');
+    three_2.link( three_3, new THREE.Vector3( 13.85, -3159.73, 3870.29),400,'','up');
+
+    three_3.link( three_2, new THREE.Vector3(196.98, -1173.53, -4849.75),300,'','up');
+    three_3.link( three_4, new THREE.Vector3(-4693.19, -1676.79, 257.62),300,'','up');
+    
+    three_4.link( three_1, new THREE.Vector3(-109.25, -1723.70, -4683.66),300,'','up');
+    three_4.link( three_3, new THREE.Vector3(4097.81, -2831.44, -364.38),300,'','up');
+    three_4.link( two_1, new THREE.Vector3(97.24, -632.83, -4951.02),200,'','left');
     //添加场景图
     viewer_main.add(two_1,two_2,two_3,two_4,three_1,three_2,three_3,three_4);
 }
