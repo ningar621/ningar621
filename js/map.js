@@ -247,10 +247,10 @@ function canvasMap(){
 
     three_4.add(center4,spotRight4,spotRight4_2, spotChicago4,spotHouston4,spotWC4,spotHawaii4,spotSanDiego4,spotLosAngeles4,spotLasVegas4);
     //二层场景图
-    let spotSingapore1,spotKualaLumpur1,spotLatinAmerica1,spotRight1,spotRight1_2,spotLeft1,spotAustralia1,spotBangkok,spotWC1,spotNewDelhi;
+    let spotSingapore1,spotKualaLumpur1,spotLatinAmerica1,tspotRight1,spotRight1_2,spotLeft1,spotAustralia1,spotBangkok,tspotWC1,spotNewDelhi;
     let spotRight2,spotAustralia2;
     let spotWC3,spotAustralia3;
-    let spotWC4,spotAustralia4,spotSingapore4,spotKualaLumpur4,spotLatinAmerica4,spotRight4;
+    let tspotWC4,spotAustralia4,spotSingapore4,spotKualaLumpur4,spotLatinAmerica4,tspotRight4;
     //二楼楼梯口
     two_1 = new PANOLENS.ImagePanorama( 'asset/textures/two_1.jpeg' );
     two_1.addEventListener( 'progress', function(e){
@@ -296,12 +296,12 @@ function canvasMap(){
     spotAustralia1.position.set( 4980.42, -355.86, -106.81);
     spotAustralia1.addHoverText( '澳洲' );
 
-    spotWC1 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.Info );
-    spotWC1.position.set(-355.71, -145.02, -4975.66);
-    spotWC1.addHoverText( '卫生间' );
+    tspotWC1 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.Info );
+    tspotWC1.position.set(-355.71, -145.02, -4975.66);
+    tspotWC1.addHoverText( '卫生间' );
     
-    spotRight1 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.rightArrow );
-    spotRight1.position.set( -4851.64, -866.48, -786.36 );
+    tspotRight1 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.rightArrow );
+    tspotRight1.position.set( -4851.64, -866.48, -786.36 );
 
     spotRight1_2 = new PANOLENS.Infospot( 150, PANOLENS.DataImage.rightArrow );
     spotRight1_2.position.set( -53.84, -458.24, -4973.96 );
@@ -317,7 +317,7 @@ function canvasMap(){
     spotLeft1 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.leftArrow );
     spotLeft1.position.set( 4955.21, -600.01, -91.46 );
     
-    two_1.add(tcenter1,spotSingapore1,spotKualaLumpur1,spotLatinAmerica1,spotRight1,spotRight1_2,spotLeft1,spotAustralia1,spotBangkok,spotWC1,spotNewDelhi);
+    two_1.add(tcenter1,spotSingapore1,spotKualaLumpur1,spotLatinAmerica1,tspotRight1,spotRight1_2,spotLeft1,spotAustralia1,spotBangkok,tspotWC1,spotNewDelhi);
     //二楼场景2
     tcenter2 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
     tcenter2.position.set(396.24, -49.26, 4977.30);
@@ -351,9 +351,9 @@ function canvasMap(){
     spotAustralia4.position.set( 4993.25, -99.08, 54.43 );
     spotAustralia4.addHoverText( '澳洲' );
 
-    spotWC4 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.Info );
-    spotWC4.position.set(-2837.66, 177.83, 4102.53);
-    spotWC4.addHoverText( '卫生间' );
+    tspotWC4 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.Info );
+    tspotWC4.position.set(-2837.66, 177.83, 4102.53);
+    tspotWC4.addHoverText( '卫生间' );
 
     spotSingapore4 = new PANOLENS.Infospot( 270, PANOLENS.DataImage.Info );
     spotSingapore4.position.set( -731.66, -6.11, -4939.26 );
@@ -363,14 +363,14 @@ function canvasMap(){
     spotKualaLumpur4.position.set( -889.92, -54.65, -4912.27 );
     spotKualaLumpur4.addHoverText( '吉隆坡' );
 
-    spotRight4 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
-    spotRight4.position.set( -794.40, -912.90, -4841.04 );
+    tspotRight4 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
+    tspotRight4.position.set( -794.40, -912.90, -4841.04 );
 
     spotLatinAmerica4 = new PANOLENS.Infospot( 180, PANOLENS.DataImage.Info );
     spotLatinAmerica4.position.set( -771.63, -707.55, -4879.86 );
     spotLatinAmerica4.addHoverText( '拉丁美洲' );
 
-    two_4.add(tcenter4,spotWC4,spotAustralia4,spotSingapore4,spotKualaLumpur4,spotLatinAmerica4,spotRight4);
+    two_4.add(tcenter4,tspotWC4,spotAustralia4,spotSingapore4,spotKualaLumpur4,spotLatinAmerica4,tspotRight4);
     //切换场景
     two_1.link( two_2, new THREE.Vector3(4566.67, -2021.80, -52.69),300,'','up');
     two_1.link( two_4, new THREE.Vector3(-19.50, -2038.02, 4560.93),300,'','up');
