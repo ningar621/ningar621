@@ -61,7 +61,7 @@ function canvasMap(){
             progressElement.classList.add( 'finish' );
         }   
     }
-    viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: 'console', viewIndicator: false, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
+    viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: '', viewIndicator: false, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
     //三楼楼梯口
     three_1 = new PANOLENS.ImagePanorama( 'asset/textures/three_1.jpeg' );
     three_1.addEventListener( 'progress', function(e){
