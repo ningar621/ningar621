@@ -28,24 +28,6 @@
   <script src="./js/map.js"></script>
   <script>
     canvasMap();
-    let oIos = document.getElementById( 'ios' );
-    //获取陀螺仪
-    if(getIos()){
-      oIos.style.display='block';
-      if (typeof(window.DeviceMotionEvent).requestPermission === 'function') { 
-        (window.DeviceMotionEvent).requestPermission().then(permissionState =>{
-          if (permissionState === 'granted') {
-            oIos.style.display='none';
-            viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
-          }else{
-            
-          }
-        })
-      }
-    }else{
-      oIos.style.display='none';
-      viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
-    }
   </script>
 </body>
 </html>

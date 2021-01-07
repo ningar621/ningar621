@@ -19,7 +19,7 @@ function canvasMap(){
           progressElement.classList.add( 'finish' );
         }   
       }
-    viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: 'overlay', viewIndicator: false, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
+    viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: 'console', viewIndicator: false, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
     //三楼楼梯口
     three_1 = new PANOLENS.ImagePanorama( 'asset/textures/three_1.jpeg' );
     three_1.addEventListener( 'progress', function(e){
@@ -362,4 +362,23 @@ function canvasMap(){
     three_4.link( two_1, new THREE.Vector3(97.24, -632.83, -4951.02),200,'','left');
     //添加场景图
     viewer_main.add(two_1,two_2,two_3,two_4,three_1,three_2,three_3,three_4);
+
+    let oIos = document.getElementById( 'ios' );
+    //获取陀螺仪
+    if(getIos()){
+      oIos.style.display='block';
+      if (typeof(window.DeviceMotionEvent).requestPermission === 'function') { 
+        (window.DeviceMotionEvent).requestPermission().then(permissionState =>{
+          if (permissionState === 'granted') {
+            oIos.style.display='none';
+            viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
+          }else{
+            
+          }
+        })
+      }
+    }else{
+      oIos.style.display='none';
+      viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
+    }
 }
