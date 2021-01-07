@@ -3,15 +3,16 @@ function getIos() {
   let u = window.navigator.userAgent;
   return !! u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 }
-function requestPermissionsIOS(obj) {
-  requestDeviceMotionIOS(obj);
-  requestDeviceOrientationIOS(obj);
+function requestPermissionsIOS(obj,ios) {
+  requestDeviceMotionIOS(obj,ios);
+  requestDeviceOrientationIOS(obj,ios);
 }
-function requestDeviceMotionIOS(obj) {
+function requestDeviceMotionIOS(obj,ios) {
   if (typeof(window.DeviceMotionEvent).requestPermission === 'function') { 
       (window.DeviceMotionEvent).requestPermission().then(permissionState =>{
           if (permissionState === 'granted') {
             obj.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
+            ios.style.display='none';
           }
       }).catch((err) =>{
           // alert(JSON.stringify(err));
@@ -21,11 +22,12 @@ function requestDeviceMotionIOS(obj) {
       // handle regular non iOS 13+ devices
   }
 }
-function requestDeviceOrientationIOS(obj) {
+function requestDeviceOrientationIOS(obj,ios) {
   if (typeof(DeviceOrientationEvent).requestPermission === 'function') { (
       DeviceOrientationEvent).requestPermission().then(permissionState =>{
           if (permissionState === 'granted') {
             obj.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
+            ios.style.display='none';
           }
       }).catch((err) =>{
           // alert(JSON.stringify(err));
@@ -35,8 +37,8 @@ function requestDeviceOrientationIOS(obj) {
       // handle regular non iOS 13+ devices
   }
 }
-function testClick(obj) {
-  requestPermissionsIOS(obj);
+function testClick(obj,ios) {
+  requestPermissionsIOS(obj,ios);
 }
 function canvasMap(){
     let viewer_main,three_1,three_2,three_3,three_4,center1,center2,center3,center4;
@@ -406,24 +408,21 @@ function canvasMap(){
     //获取陀螺仪
     if(getIos()){
       oIos.style.display='block';
-      let oerror=document.getElementById('error');
+      // let oerror=document.getElementById('error');
       oIos.onclick=function(){
-        testClick(viewer_main);
+        testClick(viewer_main,oIos);
       }
       if (typeof(window.DeviceMotionEvent).requestPermission === 'function') { 
         (window.DeviceMotionEvent).requestPermission().then(permissionState =>{
-          oerror.innerHTML=permissionState;
           if (permissionState === 'granted') {
             oIos.style.display='none';
             viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
           }else{
-            
           }
         })
       }
     }else{
       oIos.style.display='none';
-    
       viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
     }
 }
