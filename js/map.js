@@ -407,7 +407,7 @@ function canvasMap(){
     if(getIos()){
       oIos.style.display='block';
       let oerror=document.getElementById('error');
-      oerror.innerHTML=typeof(window.DeviceMotionEvent).requestPermission
+      
       if (typeof(window.DeviceMotionEvent).requestPermission === 'function') { 
         
         (window.DeviceMotionEvent).requestPermission().then(permissionState =>{
@@ -415,7 +415,7 @@ function canvasMap(){
             oIos.style.display='none';
             viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
           }else{
-            
+            oerror.innerHTML='123123';
             oIos.onclick=function(){
               testClick(viewer_main);
             }
