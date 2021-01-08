@@ -156,11 +156,11 @@ function canvasMap(){
 
     spotLeft1_2 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.leftArrow );
     spotLeft1_2.position.set( 4899.70, -761.40, 605.72 );
-    spotLeft1_2.addEventListener( 'click', function(){
-      window.location.href='three.html'
-      // viewer_main.setPanorama( two_2 );
-    });
-    two_1.add(spotLeft1_2);
+    // spotLeft1_2.addEventListener( 'click', function(){
+    //   window.location.href='three.html'
+    //   // viewer_main.setPanorama( two_2 );
+    // });
+    // two_1.add(spotLeft1_2);
     // two_1.add(tcenter1,spotSingapore1,spotKualaLumpur1,spotLatinAmerica1,tspotRight1,spotRight1_2,spotBangkok,tspotWC1,spotNewDelhi);
     //二楼场景2
     tcenter2 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
@@ -176,10 +176,10 @@ function canvasMap(){
     spotRight2_2 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
     spotRight2_2.position.set( -4939.80, -514.28, 539.22 );
 
-    spotRight2_2.addEventListener( 'click', function(){
-      window.location.href='three.html'
-      // viewer_main.setPanorama( two_2 );
-    });
+    // spotRight2_2.addEventListener( 'click', function(){
+    //   window.location.href='three.html'
+    //   // viewer_main.setPanorama( two_2 );
+    // });
 
     two_2.add(tcenter2,spotRight2,spotAustralia2,spotRight2_2);
     //二楼场景3

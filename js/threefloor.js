@@ -102,13 +102,13 @@ function canvasMap(){
     three_4.link( three_3, new THREE.Vector3(4097.81, -2831.44, -364.38),300,'','up');
     //地点标示
     //场景1
-    spotRight1_1 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
-    spotRight1_1.position.set( 1145.17, -2295.12, 4284.45 );
-    spotRight1_1.addEventListener( 'click', function(){
-      window.location.href='two.html'
-      // viewer_main.setPanorama( two_2 );
-    });
-    three_1.add(spotRight1_1);
+    // spotRight1_1 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
+    // spotRight1_1.position.set( 1145.17, -2295.12, 4284.45 );
+    // spotRight1_1.addEventListener( 'click', function(){
+    //   window.location.href='two.html'
+    //   // viewer_main.setPanorama( two_2 );
+    // });
+    // three_1.add(spotRight1_1);
 
     center1 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
     center1.position.set(-4476.42, -2011.88, 936.06);
@@ -282,14 +282,14 @@ function canvasMap(){
     spotWC4.position.set(-2983.15, -318.06, 3993.21);
     spotWC4.addHoverText( '卫生间' );
 
-    spotLeft4 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.leftArrow );
-    spotLeft4.position.set( 97.24, -632.83, -4951.02 );
-    spotLeft4.addEventListener( 'click', function(){
-      window.location.href='two.html'
-      // viewer_main.setPanorama( two_2 );
-    });
+    // spotLeft4 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.leftArrow );
+    // spotLeft4.position.set( 97.24, -632.83, -4951.02 );
+    // spotLeft4.addEventListener( 'click', function(){
+    //   window.location.href='two.html'
+    //   // viewer_main.setPanorama( two_2 );
+    // });
 
-    three_4.add(center4,spotRight4,spotRight4_2, spotChicago4,spotHouston4,spotWC4,spotHawaii4,spotSanDiego4,spotLosAngeles4,spotLasVegas4,spotLeft4);
+    three_4.add(center4,spotRight4,spotRight4_2, spotChicago4,spotHouston4,spotWC4,spotHawaii4,spotSanDiego4,spotLosAngeles4,spotLasVegas4);
     
     //添加场景图
     viewer_main.add(three_1,three_2,three_3,three_4);
