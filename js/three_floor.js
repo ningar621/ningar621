@@ -85,6 +85,18 @@ function canvasMap(){
         onProgress(e,center4)
     });
     three_4.addEventListener( 'enter', onEnter );
+    //切换场景
+    three_1.link( three_2, new THREE.Vector3(4317.34, -2337.87, 930.03),300,'','up');
+    three_1.link( three_4, new THREE.Vector3(-31.23, -2881.96, 4081.51),300,'','up');
+
+    three_2.link( three_1, new THREE.Vector3(-2668.35, -620.15, 93.96 ),300,'','up');
+    three_2.link( three_3, new THREE.Vector3( 13.85, -2159.73, 3870.29),300,'','up');
+  
+    three_3.link( three_2, new THREE.Vector3(196.98, -1173.53, -4849.75),240,'','up');
+    three_3.link( three_4, new THREE.Vector3(-4693.19, -1676.79, 257.62),300,'','up');
+    
+    three_4.link( three_1, new THREE.Vector3(-109.25, -1723.70, -4683.66),300,'','up');
+    three_4.link( three_3, new THREE.Vector3(4097.81, -2831.44, -364.38),300,'','up');
     //地点标示
     //场景1
     center1 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
@@ -263,20 +275,7 @@ function canvasMap(){
     });
 
     three_4.add(center4,spotRight4,spotRight4_2, spotChicago4,spotHouston4,spotWC4,spotHawaii4,spotSanDiego4,spotLosAngeles4,spotLasVegas4,spotLeft4);
-    //切换场景
-    three_1.link( three_2, new THREE.Vector3(4317.34, -2337.87, 930.03),300,'','up');
-    three_1.link( three_4, new THREE.Vector3(-31.23, -2881.96, 4081.51),300,'','up');
-    // three_1.link( two_1, new THREE.Vector3(1145.17, -2295.12, 4284.45),300,'','right');
-
-    three_2.link( three_1, new THREE.Vector3(-2668.35, -620.15, 93.96 ),300,'','up');
-    three_2.link( three_3, new THREE.Vector3( 13.85, -2159.73, 3870.29),300,'','up');
-  
-    three_3.link( three_2, new THREE.Vector3(196.98, -1173.53, -4849.75),240,'','up');
-    three_3.link( three_4, new THREE.Vector3(-4693.19, -1676.79, 257.62),300,'','up');
     
-    three_4.link( three_1, new THREE.Vector3(-109.25, -1723.70, -4683.66),300,'','up');
-    three_4.link( three_3, new THREE.Vector3(4097.81, -2831.44, -364.38),300,'','up');
-    // three_4.link( two_1, new THREE.Vector3(97.24, -632.83, -4951.02),200,'','left');
     //添加场景图
     viewer_main.add(three_1,three_2,three_3,three_4);
 
