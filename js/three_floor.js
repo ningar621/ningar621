@@ -204,6 +204,7 @@ function canvasMap(){
     spotNA3.addHoverText( '北美洲' );
 
     spotLeft3 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.leftArrow );
+    
     spotLeft3.position.set( 359.83, -1788.74, -4646.54 );
     
     spotSanFrancisco3 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.Info );

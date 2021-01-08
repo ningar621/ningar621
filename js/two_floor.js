@@ -180,11 +180,11 @@ function canvasMap(){
     tspotWC4.position.set( -2837.66, 177.83, 4102.53 );
     tspotWC4.addHoverText( '卫生间' );
 
-    spotSingapore4 = new PANOLENS.Infospot( 270, PANOLENS.DataImage.Info );
+    spotSingapore4 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.Info );
     spotSingapore4.position.set( -731.66, -6.11, -4939.26 );
     spotSingapore4.addHoverText( '新加坡' );
 
-    spotKualaLumpur4 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.Info );
+    spotKualaLumpur4 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.Info );
     spotKualaLumpur4.position.set( -889.92, -54.65, -4912.27 );
     spotKualaLumpur4.addHoverText( '吉隆坡' );
 
@@ -198,7 +198,7 @@ function canvasMap(){
     two_4.add(tcenter4,tspotWC4,spotAustralia4,spotSingapore4,spotKualaLumpur4,spotLatinAmerica4,spotRight4);
     //切换场景
     two_1.link( two_4, new THREE.Vector3(-19.50, -2038.02, 4560.93),300,'','up');
-    
+
     two_1.link( two_2, new THREE.Vector3(4566.67, -2021.80, -52.69),300,'','up');
   
     two_2.link( two_1, new THREE.Vector3(-4510.14, -2115.84, 304.04),300,'','up');
