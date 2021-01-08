@@ -42,9 +42,11 @@ function testClick(obj,ios) {
 }
 function canvasMap(){
     let viewer_main,three_1,three_2,three_3,three_4,center1,center2,center3,center4;
-    let spotRight1, spotChicago1,spotXZ1,spotHouston1,spotWC1,spotHawaii1,spotSanDiego1,spotLosAngeles1,spotLasVegas1;
+    let spotRight1, spotChicago1,spotXZ1,spotHouston1,spotWC1,spotHawaii1;
+    let spotSanDiego1,spotLosAngeles1,spotLasVegas1,spotRight1_1;
     let spotleft2, spotLasVegas2,spotLosAngeles2,spotSanDiego2,spotHawaii2,spotStair,spotNA,spotSanFrancisco,spotSeattle;
-    let spotRight3,spotRight3_2,spotLeft3, spotLasVegas3,spotLosAngeles3,spotSanDiego3,spotHawaii3,spotNA3,spotSanFrancisco3,spotSeattle3;
+    let spotRight3,spotRight3_2,spotLeft3, spotLasVegas3,spotLosAngeles3;
+    let spotSanDiego3,spotHawaii3,spotNA3,spotSanFrancisco3,spotSeattle3;
     let spotRight4,spotRight4_2, spotChicago4,spotHouston4,spotWC4,spotHawaii4,spotSanDiego4,spotLosAngeles4,spotLasVegas4;
     let progressElement = document.getElementById( 'progress' );
     function onEnter ( event ) {
@@ -101,51 +103,61 @@ function canvasMap(){
     //场景1
     center1 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
     center1.position.set(-4476.42, -2011.88, 936.06);
+    three_1.add(center1);
     
     spotLasVegas1 = new PANOLENS.Infospot( 120, PANOLENS.DataImage.Info );
     spotLasVegas1.position.set( 465.10, -966.85, 4960.65);
     spotLasVegas1.addHoverText( '拉斯维加斯' );
+    three_1.add(spotLasVegas1);
 
     spotLosAngeles1 = new PANOLENS.Infospot( 120, PANOLENS.DataImage.Info );
     spotLosAngeles1.position.set( 465.10, -766.85, 4960.65);
     spotLosAngeles1.addHoverText( '洛杉矶' );
+    three_1.add(spotLosAngeles1);
 
     spotSanDiego1 = new PANOLENS.Infospot( 120, PANOLENS.DataImage.Info );
     spotSanDiego1.position.set( 465.10, -566.85, 4960.65);
     spotSanDiego1.addHoverText( '圣地亚哥' );
+    three_1.add(spotSanDiego1);
 
     spotHawaii1 = new PANOLENS.Infospot( 120, PANOLENS.DataImage.Info );
     spotHawaii1.position.set( 465.10, -381.25, 4960.65);
     spotHawaii1.addHoverText( '夏威夷' );
+    three_1.add(spotHawaii1);
 
     spotXZ1 = new PANOLENS.Infospot( 120, PANOLENS.DataImage.Info );
     spotXZ1.position.set( 4934.51, -209.82, -710.54);
     spotXZ1.addHoverText( '行政部' );
+    three_1.add(spotXZ1);
     
     spotChicago1 = new PANOLENS.Infospot( 270, PANOLENS.DataImage.Info );
     spotChicago1.position.set(-1120.33, -554.15, -4833.36 );
     spotChicago1.addHoverText( '芝加哥会议室' );
+    three_1.add(spotChicago1);
 
     spotHouston1 = new PANOLENS.Infospot( 150, PANOLENS.DataImage.Info );
     spotHouston1.position.set(-761.02, -431.92, -4914.53 );
     spotHouston1.addHoverText( '休斯顿会议室' );
+    three_1.add(spotHouston1);
 
     spotWC1 = new PANOLENS.Infospot( 80, PANOLENS.DataImage.Info );
     spotWC1.position.set(-637.14, -492.85, -4926.86);
     spotWC1.addHoverText( '卫生间' );
+    three_1.add(spotWC1);
     
     spotRight1 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.rightArrow );
     spotRight1.position.set( 253.79, -711.17, 4933.54);
-    
+    three_1.add(spotRight1);
+
     spotRight1_1 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
     spotRight1_1.position.set( 1145.17, -2295.12, 4284.45 );
     spotRight1_1.addEventListener( 'click', function(){
-      window.location.href='two.html?time='+Date.now()
+      window.location.href='two.html'
       // viewer_main.setPanorama( two_2 );
     });
     three_1.add(spotRight1_1);
 
-    three_1.add(center1,spotRight1, spotChicago1,spotXZ1,spotHouston1,spotWC1,spotHawaii1,spotSanDiego1,spotLosAngeles1,spotLasVegas1,spotRight1_1);
+    // three_1.add(center1,spotRight1, spotChicago1,spotXZ1,spotHouston1,spotWC1,spotHawaii1,spotSanDiego1,spotLosAngeles1,spotLasVegas1,spotRight1_1);
     //场景2
     center2 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
     center2.position.set(-255.35, -1005.54, 4880.63);
@@ -270,7 +282,7 @@ function canvasMap(){
     spotLeft4 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.leftArrow );
     spotLeft4.position.set( 97.24, -632.83, -4951.02 );
     spotLeft4.addEventListener( 'click', function(){
-      window.location.href='two.html?time='+Date.now()
+      window.location.href='two.html'
       // viewer_main.setPanorama( two_2 );
     });
 
