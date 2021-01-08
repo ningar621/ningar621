@@ -231,8 +231,4 @@ function canvasMap(){
       oIos.style.display='none';
       viewer_main.enableControl( PANOLENS.CONTROLS.DEVICEORIENTATION );
     }
-    let oError=document.getElementById('error');
-    window.addEventListener( 'onerror', function(e){
-      oError.innerHTML=JSON.stringify(e)
-    });
 }
