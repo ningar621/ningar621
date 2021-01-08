@@ -92,6 +92,7 @@ function canvasMap(){
     tcenter1 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
     tcenter1.position.set( -4860.32, -1158.27, -63.19 );
     two_1.add(tcenter1);
+    
     spotAustralia1 = new PANOLENS.Infospot( 180, PANOLENS.DataImage.Info );
     spotAustralia1.position.set( 4980.42, -355.86, -106.81 );
     spotAustralia1.addHoverText( '澳洲' );
@@ -100,7 +101,7 @@ function canvasMap(){
     spotSingapore1 = new PANOLENS.Infospot( 270, PANOLENS.DataImage.Info );
     spotSingapore1.position.set( -1812.96, 41.72, 4650.70 );
     spotSingapore1.addHoverText( '新加坡' );
-    // two_1.add(spotSingapore1);
+    two_1.add(spotSingapore1);
 
     spotKualaLumpur1 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.Info );
     spotKualaLumpur1.position.set( -583.59, -118.24, 4958.26 );
@@ -146,7 +147,7 @@ function canvasMap(){
       // viewer_main.setPanorama( two_2 );
     });
     two_1.add(spotLeft1_2);
-    two_1.add(tcenter1,spotSingapore1,spotKualaLumpur1,spotLatinAmerica1,tspotRight1,spotRight1_2,spotBangkok,tspotWC1,spotNewDelhi);
+    // two_1.add(tcenter1,spotSingapore1,spotKualaLumpur1,spotLatinAmerica1,tspotRight1,spotRight1_2,spotBangkok,tspotWC1,spotNewDelhi);
     //二楼场景2
     tcenter2 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
     tcenter2.position.set( 389.21, 51.22, 4977.59 );
