@@ -150,13 +150,14 @@ function canvasMap(){
     spotRight1.position.set( 253.79, -711.17, 4933.54);
     three_1.add(spotRight1);
 
-  
     spotRight1_1 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
     spotRight1_1.position.set( 1145.17, -2295.12, 4284.45 );
+    
     spotRight1_1.addEventListener( 'click', function(){
       window.location.href='two.html'
       // viewer_main.setPanorama( two_2 );
     });
+    three_1.add(spotRight1_1);
     three_1.add(spotRight1_1);
     three_1.add(spotRight1_1);
     // three_1.add(center1,spotRight1, spotChicago1,spotXZ1,spotHouston1,spotWC1,spotHawaii1,spotSanDiego1,spotLosAngeles1,spotLasVegas1,spotRight1_1);
@@ -233,6 +234,7 @@ function canvasMap(){
 
     spotLeft3 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.leftArrow );
     spotLeft3.position.set( 359.83, -1788.74, -4646.54 );
+    three_3.add(spotLeft3);
     three_3.add(spotLeft3);
     
     spotSanFrancisco3 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.Info );
