@@ -62,7 +62,7 @@ function canvasMap(){
             progressElement.classList.add( 'finish' );
         }   
     }
-    viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: 'console', viewIndicator: false, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
+    viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: '', viewIndicator: false, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
     //三楼楼梯口
     three_1 = new PANOLENS.ImagePanorama( 'asset/textures/three_1.jpeg' );
     three_1.addEventListener( 'progress', function(e){
@@ -90,11 +90,9 @@ function canvasMap(){
 
     //切换场景
     three_1.link( three_4, new THREE.Vector3( -31.23, -2881.96, 4081.51 ),300,'','up');
-    three_1.link( three_2, new THREE.Vector3(4317.34, -2337.87, 930.03),300,'','up');
-
     
-
     three_2.link( three_1, new THREE.Vector3(-2668.35, -620.15, 93.96 ),240,'','up');
+    three_1.link( three_2, new THREE.Vector3(4317.34, -2337.87, 930.03),300,'','up');
     three_2.link( three_3, new THREE.Vector3( 13.85, -2159.73, 3870.29),300,'','up');
   
     three_3.link( three_2, new THREE.Vector3(196.98, -1173.53, -4849.75),240,'','up');
