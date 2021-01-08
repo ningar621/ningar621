@@ -105,12 +105,6 @@ function canvasMap(){
     });
     two_1.add(spotLeft1_2);
 
-    
-    spotLatinAmerica1 = new PANOLENS.Infospot( 180, PANOLENS.DataImage.Info );
-    spotLatinAmerica1.position.set( -4894.34, -582.66, -774.56 );
-    spotLatinAmerica1.addHoverText( '拉丁美洲' );
-    two_1.add(spotLatinAmerica1);
-
     // spotAustralia1 = new PANOLENS.Infospot( 180, PANOLENS.DataImage.Info );
     // spotAustralia1.position.set( 4980.42, -355.86, -106.81 );
     // spotAustralia1.addHoverText( '澳洲' );
@@ -133,6 +127,11 @@ function canvasMap(){
     spotRight1_2 = new PANOLENS.Infospot( 150, PANOLENS.DataImage.rightArrow );
     spotRight1_2.position.set( -53.84, -458.24, -4973.96 );
     two_1.add(spotRight1_2);
+
+    spotLatinAmerica1 = new PANOLENS.Infospot( 180, PANOLENS.DataImage.Info );
+    spotLatinAmerica1.position.set( -4894.34, -582.66, -774.56 );
+    spotLatinAmerica1.addHoverText( '拉丁美洲' );
+    two_1.add(spotLatinAmerica1);
 
     spotBangkok = new PANOLENS.Infospot( 120, PANOLENS.DataImage.Info );
     spotBangkok.position.set( -17.62, -300.82, -4987.26 );
