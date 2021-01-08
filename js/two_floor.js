@@ -106,7 +106,7 @@ function canvasMap(){
     two_1.add(spotLeft1_2);
 
     
-    spotLatinAmerica1 = new PANOLENS.Infospot( 120, PANOLENS.DataImage.Info );
+    spotLatinAmerica1 = new PANOLENS.Infospot( 180, PANOLENS.DataImage.Info );
     spotLatinAmerica1.position.set( -4894.34, -582.66, -774.56 );
     spotLatinAmerica1.addHoverText( '拉丁美洲' );
     two_1.add(spotLatinAmerica1);
