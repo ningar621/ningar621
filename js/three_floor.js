@@ -270,7 +270,7 @@ function canvasMap(){
     three_2.link( three_1, new THREE.Vector3(-2668.35, -620.15, 93.96 ),300,'','up');
     three_2.link( three_3, new THREE.Vector3( 13.85, -2159.73, 3870.29),300,'','up');
   
-    three_3.link( three_2, new THREE.Vector3(196.98, -1173.53, -4849.75),300,'','up');
+    three_3.link( three_2, new THREE.Vector3(196.98, -1173.53, -4849.75),240,'','up');
     three_3.link( three_4, new THREE.Vector3(-4693.19, -1676.79, 257.62),300,'','up');
     
     three_4.link( three_1, new THREE.Vector3(-109.25, -1723.70, -4683.66),300,'','up');
