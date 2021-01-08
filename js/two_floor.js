@@ -87,12 +87,26 @@ function canvasMap(){
         onProgress(e,tcenter4)
     });
     two_4.addEventListener( 'enter', onEnter );
+    
+     //切换场景
+     two_1.link( two_4, new THREE.Vector3(-19.50, -2038.02, 4560.93),300,'','up');
+     two_1.link( two_2, new THREE.Vector3(4566.67, -2021.80, -52.69),300,'','up');
+ 
+     two_2.link( two_1, new THREE.Vector3(-4510.14, -2115.84, 304.04),300,'','up');
+     two_2.link( two_3, new THREE.Vector3( 385.98, -1961.35, 4577.07 ),300,'','up');
+ 
+     two_3.link( two_2, new THREE.Vector3(157.56, -2303.43, -4428.03),300,'','up');
+ 
+     two_3.link( two_4, new THREE.Vector3(-4789.31, -1373.29, -275.31),300,'','up');
+     
+     two_4.link( two_1, new THREE.Vector3(-490.28, -1705.44, -4670.43),300,'','up');
+     two_4.link( two_3, new THREE.Vector3(4558.24, -2044.35, -15.17),300,'','up');
     //地点标示
     //二楼场景1
     tcenter1 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
     tcenter1.position.set( -4860.32, -1158.27, -63.19 );
     two_1.add(tcenter1);
-    
+
     spotAustralia1 = new PANOLENS.Infospot( 180, PANOLENS.DataImage.Info );
     spotAustralia1.position.set( 4980.42, -355.86, -106.81 );
     spotAustralia1.addHoverText( '澳洲' );
@@ -209,19 +223,7 @@ function canvasMap(){
     spotLatinAmerica4.addHoverText( '拉丁美洲' );
 
     two_4.add(tcenter4,tspotWC4,spotAustralia4,spotSingapore4,spotKualaLumpur4,spotLatinAmerica4,spotRight4);
-    //切换场景
-    two_1.link( two_4, new THREE.Vector3(-19.50, -2038.02, 4560.93),300,'','up');
-    two_1.link( two_2, new THREE.Vector3(4566.67, -2021.80, -52.69),300,'','up');
-
-    two_2.link( two_1, new THREE.Vector3(-4510.14, -2115.84, 304.04),300,'','up');
-    two_2.link( two_3, new THREE.Vector3( 385.98, -1961.35, 4577.07 ),300,'','up');
-
-    two_3.link( two_2, new THREE.Vector3(157.56, -2303.43, -4428.03),300,'','up');
-
-    two_3.link( two_4, new THREE.Vector3(-4789.31, -1373.29, -275.31),300,'','up');
-    
-    two_4.link( two_1, new THREE.Vector3(-490.28, -1705.44, -4670.43),300,'','up');
-    two_4.link( two_3, new THREE.Vector3(4558.24, -2044.35, -15.17),300,'','up');
+   
     //添加场景图
     viewer_main.add(two_1,two_2,two_3,two_4);
 
