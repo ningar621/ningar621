@@ -58,7 +58,7 @@ function canvasMap(){
     }
     viewer_main = new PANOLENS.Viewer({ enableReticle: false, output: '', viewIndicator: false, autoRotate: false, autoRotateSpeed: 2, autoRotateActivationDuration: 3000, dwellTime: 3000 });
      //二层场景图
-    let spotSingapore1,spotKualaLumpur1,spotLatinAmerica1,tspotRight1,spotRight1_2,spotLeft1,spotAustralia1,spotBangkok,tspotWC1,spotNewDelhi;
+    let spotLeft1_2,spotSingapore1,spotKualaLumpur1,spotLatinAmerica1,tspotRight1,spotRight1_2,spotLeft1,spotAustralia1,spotBangkok,tspotWC1,spotNewDelhi;
     let spotRight2,spotAustralia2;
     let spotWC3,spotAustralia3;
     let tspotWC4,spotAustralia4,spotSingapore4,spotKualaLumpur4,spotLatinAmerica4,tspotRight4;
@@ -210,8 +210,10 @@ function canvasMap(){
     //切换场景
     two_1.link( two_2, new THREE.Vector3(4566.67, -2021.80, -52.69),300,'','up');
 
-    two_2.link( two_1, new THREE.Vector3(-4510.14, -2115.84, 304.04),300,'','up');
     two_1.link( two_4, new THREE.Vector3(-19.50, -2038.02, 4560.93),300,'','up');
+
+    two_2.link( two_1, new THREE.Vector3(-4510.14, -2115.84, 304.04),300,'','up');
+    
     two_2.link( two_3, new THREE.Vector3( 385.98, -1961.35, 4577.07 ),300,'','up');
 
     two_3.link( two_2, new THREE.Vector3(157.56, -2303.43, -4428.03),300,'','up');
