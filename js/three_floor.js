@@ -89,9 +89,10 @@ function canvasMap(){
     three_4.addEventListener( 'enter', onEnter );
     //切换场景
     three_1.link( three_2, new THREE.Vector3(4317.34, -2337.87, 930.03),300,'','up');
-    three_1.link( three_4, new THREE.Vector3(-31.23, -2881.96, 4081.51),300,'','up');
 
-    three_2.link( three_1, new THREE.Vector3(-2668.35, -620.15, 93.96 ),300,'','up');
+    three_1.link( three_4, new THREE.Vector3( -31.23, -2881.96, 4081.51 ),300,'','up');
+
+    three_2.link( three_1, new THREE.Vector3(-2668.35, -620.15, 93.96 ),240,'','up');
     three_2.link( three_3, new THREE.Vector3( 13.85, -2159.73, 3870.29),300,'','up');
   
     three_3.link( three_2, new THREE.Vector3(196.98, -1173.53, -4849.75),240,'','up');
