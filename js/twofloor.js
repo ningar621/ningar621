@@ -173,15 +173,15 @@ function canvasMap(){
     spotAustralia2.position.set( 387.83, -258.06, 4969.54 );
     spotAustralia2.addHoverText( '澳洲' );
 
-    spotRight2_2 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
-    spotRight2_2.position.set( -4939.80, -514.28, 539.22 );
+    // spotRight2_2 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
+    // spotRight2_2.position.set( -4939.80, -514.28, 539.22 );
 
     // spotRight2_2.addEventListener( 'click', function(){
     //   window.location.href='three.html'
     //   // viewer_main.setPanorama( two_2 );
     // });
 
-    two_2.add(tcenter2,spotRight2,spotAustralia2,spotRight2_2);
+    two_2.add(tcenter2,spotRight2,spotAustralia2);
     //二楼场景3
     tcenter3 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
     tcenter3.position.set( 4958.63, -455.57, -352.32 );
