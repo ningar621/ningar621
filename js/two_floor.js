@@ -197,13 +197,11 @@ function canvasMap(){
 
     two_4.add(tcenter4,tspotWC4,spotAustralia4,spotSingapore4,spotKualaLumpur4,spotLatinAmerica4,spotRight4);
     //切换场景
-    two_1.link( two_2, new THREE.Vector3(4566.67, -2021.80, -52.69),300,'','up');
     two_1.link( two_4, new THREE.Vector3(-19.50, -2038.02, 4560.93),300,'','up');
-    // two_1.link( three_1, new THREE.Vector3(4899.70, -761.40, 605.72),300,'','left');
-    
+    two_1.link( two_2, new THREE.Vector3(4566.67, -2021.80, -52.69),300,'','up');
+  
     two_2.link( two_1, new THREE.Vector3(-4510.14, -2115.84, 304.04),300,'','up');
     two_2.link( two_3, new THREE.Vector3( 385.98, -1961.35, 4577.07 ),300,'','up');
-    // two_2.link( three_1, new THREE.Vector3( -4939.80, -514.28, 539.22),300,'','right');
 
     two_3.link( two_2, new THREE.Vector3(157.56, -2303.43, -4428.03),300,'','up');
     two_3.link( two_4, new THREE.Vector3(-4789.31, -1373.29, -275.31),300,'','up');
