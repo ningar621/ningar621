@@ -128,7 +128,7 @@ function canvasMap(){
     spotRight1_1 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
     spotRight1_1.position.set( 1145.17, -2295.12, 4284.45 );
     spotRight1_1.addEventListener( 'click', function(){
-      window.location.href='two.html'
+      window.location.href='two.html?time'+Date.now()
       // viewer_main.setPanorama( two_2 );
     });
 
@@ -204,7 +204,7 @@ function canvasMap(){
     spotNA3.addHoverText( '北美洲' );
 
     spotLeft3 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.leftArrow );
-    
+
     spotLeft3.position.set( 359.83, -1788.74, -4646.54 );
     
     spotSanFrancisco3 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.Info );
@@ -257,7 +257,7 @@ function canvasMap(){
     spotLeft4 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.leftArrow );
     spotLeft4.position.set( 97.24, -632.83, -4951.02 );
     spotLeft4.addEventListener( 'click', function(){
-      window.location.href='two.html'
+      window.location.href='two.html?time'+Date.now()
       // viewer_main.setPanorama( two_2 );
     });
 

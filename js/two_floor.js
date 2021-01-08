@@ -98,7 +98,7 @@ function canvasMap(){
     spotLeft1_2 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.leftArrow );
     spotLeft1_2.position.set( 4899.70, -761.40, 605.72 );
     spotLeft1_2.addEventListener( 'click', function(){
-      window.location.href='three.html'
+      window.location.href='three.html?time'+Date.now()
       // viewer_main.setPanorama( two_2 );
     });
 
@@ -150,7 +150,7 @@ function canvasMap(){
     spotRight2_2 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
     spotRight2_2.position.set( -4939.80, -514.28, 539.22 );
     spotRight2_2.addEventListener( 'click', function(){
-      window.location.href='three.html'
+      window.location.href='three.html?time'+Date.now()
       // viewer_main.setPanorama( two_2 );
     });
 
