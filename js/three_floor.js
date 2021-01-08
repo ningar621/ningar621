@@ -128,9 +128,10 @@ function canvasMap(){
     spotRight1_1 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
     spotRight1_1.position.set( 1145.17, -2295.12, 4284.45 );
     spotRight1_1.addEventListener( 'click', function(){
-      window.location.href='two.html?time'+Date.now()
+      window.location.href='two.html?time='+Date.now()
       // viewer_main.setPanorama( two_2 );
     });
+    three_1.add(spotRight1_1);
 
     three_1.add(center1,spotRight1, spotChicago1,spotXZ1,spotHouston1,spotWC1,spotHawaii1,spotSanDiego1,spotLosAngeles1,spotLasVegas1,spotRight1_1);
     //场景2
@@ -257,7 +258,7 @@ function canvasMap(){
     spotLeft4 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.leftArrow );
     spotLeft4.position.set( 97.24, -632.83, -4951.02 );
     spotLeft4.addEventListener( 'click', function(){
-      window.location.href='two.html?time'+Date.now()
+      window.location.href='two.html?time='+Date.now()
       // viewer_main.setPanorama( two_2 );
     });
 
