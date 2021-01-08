@@ -102,6 +102,14 @@ function canvasMap(){
     three_4.link( three_3, new THREE.Vector3(4097.81, -2831.44, -364.38),300,'','up');
     //地点标示
     //场景1
+    spotRight1_1 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
+    spotRight1_1.position.set( 1145.17, -2295.12, 4284.45 );
+    spotRight1_1.addEventListener( 'click', function(){
+      window.location.href='two.html'
+      // viewer_main.setPanorama( two_2 );
+    });
+    three_1.add(spotRight1_1);
+
     center1 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
     center1.position.set(-4476.42, -2011.88, 936.06);
     three_1.add(center1);
@@ -150,16 +158,6 @@ function canvasMap(){
     spotRight1.position.set( 253.79, -711.17, 4933.54);
     three_1.add(spotRight1);
 
-    spotRight1_1 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.rightArrow );
-    spotRight1_1.position.set( 1145.17, -2295.12, 4284.45 );
-    
-    spotRight1_1.addEventListener( 'click', function(){
-      window.location.href='two.html'
-      // viewer_main.setPanorama( two_2 );
-    });
-    three_1.add(spotRight1_1);
-    three_1.add(spotRight1_1);
-    three_1.add(spotRight1_1);
     // three_1.add(center1,spotRight1, spotChicago1,spotXZ1,spotHouston1,spotWC1,spotHawaii1,spotSanDiego1,spotLosAngeles1,spotLasVegas1,spotRight1_1);
     //场景2
     center2 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
@@ -230,12 +228,8 @@ function canvasMap(){
     spotNA3 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.Info );
     spotNA3.position.set( 2085.59, -198.51, 4532.54 );
     spotNA3.addHoverText( '北美洲' );
-
-
     spotLeft3 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.leftArrow );
     spotLeft3.position.set( 359.83, -1788.74, -4646.54 );
-    three_3.add(spotLeft3);
-    three_3.add(spotLeft3);
     
     spotSanFrancisco3 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.Info );
     spotSanFrancisco3.position.set( 347.81, -2029.26, -4547.76);
@@ -245,7 +239,7 @@ function canvasMap(){
     spotSeattle3.position.set( 347.81, -2429.26, -4547.76);
     spotSeattle3.addHoverText( '西雅图' );
     
-    three_3.add(center3,spotRight3,spotRight3_2,spotLasVegas3,spotLosAngeles3,spotSanDiego3,spotHawaii3,spotNA3,spotSanFrancisco3,spotSeattle3);
+    three_3.add(spotLeft3,center3,spotRight3,spotRight3_2,spotLasVegas3,spotLosAngeles3,spotSanDiego3,spotHawaii3,spotNA3,spotSanFrancisco3,spotSeattle3);
     //场景4
     center4 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
     center4.position.set(122.09, -1319.24, -4812.58);
