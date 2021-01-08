@@ -97,18 +97,10 @@ function canvasMap(){
     spotSingapore1.addHoverText( '新加坡' );
     two_1.add(spotSingapore1);
 
-    spotLeft1_2 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.leftArrow );
-    spotLeft1_2.position.set( 4899.70, -761.40, 605.72 );
-    spotLeft1_2.addEventListener( 'click', function(){
-      window.location.href='three.html'
-      // viewer_main.setPanorama( two_2 );
-    });
-    two_1.add(spotLeft1_2);
-
-    // spotAustralia1 = new PANOLENS.Infospot( 180, PANOLENS.DataImage.Info );
-    // spotAustralia1.position.set( 4980.42, -355.86, -106.81 );
-    // spotAustralia1.addHoverText( '澳洲' );
-    // two_1.add(spotAustralia1);
+    spotAustralia1 = new PANOLENS.Infospot( 180, PANOLENS.DataImage.Info );
+    spotAustralia1.position.set( 4980.42, -355.86, -106.81 );
+    spotAustralia1.addHoverText( '澳洲' );
+    two_1.add(spotAustralia1);
 
     spotKualaLumpur1 = new PANOLENS.Infospot( 240, PANOLENS.DataImage.Info );
     spotKualaLumpur1.position.set( -583.59, -118.24, 4958.26 );
@@ -143,10 +135,18 @@ function canvasMap(){
     spotNewDelhi.addHoverText( '新德里' );
     two_1.add(spotNewDelhi);
 
-    // spotLeft1 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.leftArrow );
-    // spotLeft1.position.set( 4955.21, -600.01, -91.46 );
-    // two_1.add(spotLeft1);
+    spotLeft1 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.leftArrow );
+    spotLeft1.position.set( 4955.21, -600.01, -91.46 );
+    two_1.add(spotLeft1);
     
+    spotLeft1_2 = new PANOLENS.Infospot( 200, PANOLENS.DataImage.leftArrow );
+    spotLeft1_2.position.set( 4899.70, -761.40, 605.72 );
+    spotLeft1_2.addEventListener( 'click', function(){
+      window.location.href='three.html'
+      // viewer_main.setPanorama( two_2 );
+    });
+    two_1.add(spotLeft1_2);
+
     two_1.add(tcenter1,spotSingapore1,spotKualaLumpur1,spotLatinAmerica1,tspotRight1,spotRight1_2,spotLeft1_2,spotBangkok,tspotWC1,spotNewDelhi);
     //二楼场景2
     tcenter2 = new THREE.Mesh( new THREE.BoxGeometry(0, 0, 0), new THREE.MeshNormalMaterial() );
